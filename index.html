@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Prehistoric Park | Where the Past is Alive</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #c8c9c5;
+            color: #252827;
+            line-height: 1.6;
+        }
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        header {
+            background: #292c2b;
+            color: #e3e3dd;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 4px solid #6d756e;
+        }
+
+        .topbar {
+            max-width: 1400px;
+            margin: auto;
+            height: 82px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 30px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-mark {
+            width: 48px;
+            height: 48px;
+            border: 2px solid #a7aaa5;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            filter: grayscale(1);
+        }
+
+        .logo-text {
+            font-size: 23px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .logo-sub {
+            display: block;
+            font-size: 10px;
+            letter-spacing: 3px;
+            color: #969b96;
+            margin-top: -3px;
+        }
+
+        nav {
+            display: flex;
+            gap: 4px;
+        }
+
+        nav a {
+            color: #d8d9d4;
+            text-decoration: none;
+            padding: 29px 15px;
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: 0.2s;
+        }
+
+        nav a:hover {
+            background: #454947;
+            color: white;
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 650px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            background:
+                linear-gradient(
+                    rgba(35, 38, 37, 0.45),
+                    rgba(35, 38, 37, 0.82)
+                ),
+                url("https://images.unsplash.com/photo-1518709594023-6eab9bab7b23?auto=format&fit=crop&w=2000&q=80")
+                center/cover;
+        }
+
+        .hero-content {
+            max-width: 1400px;
+            width: 100%;
+            margin: auto;
+            padding: 80px 40px;
+            color: white;
+        }
+
+        .hero-kicker {
+            font-size: 13px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: #c2c4bd;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 {
+            font-size: clamp(50px, 7vw, 100px);
+            line-height: 0.95;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            max-width: 900px;
+            text-shadow: 2px 3px 8px #000;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-top: 25px;
+            color: #d9d9d4;
+            max-width: 600px;
+        }
+
+        .hero-button {
+            display: inline-block;
+            margin-top: 35px;
+            padding: 15px 28px;
+            background: #d2d2ca;
+            color: #292c2b;
+            text-decoration: none;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: 0.2s;
+        }
+
+        .hero-button:hover {
+            background: white;
+        }
+
+        /* =========================
+           INFO BAR
+        ========================= */
+
+        .info-bar {
+            background: #454947;
+            color: #e1e1db;
+        }
+
+        .info-grid {
+            max-width: 1400px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .info-item {
+            padding: 25px;
+            text-align: center;
+            border-right: 1px solid #666c68;
+        }
+
+        .info-item:last-child {
+            border-right: none;
+        }
+
+        .info-number {
+            display: block;
+            font-size: 27px;
+            font-weight: bold;
+        }
+
+        .info-label {
+            display: block;
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #adb1ac;
+        }
+
+        /* =========================
+           GENERAL
+        ========================= */
+
+        .section {
+            max-width: 1400px;
+            margin: auto;
+            padding: 90px 35px;
+        }
+
+        .section-header {
+            margin-bottom: 45px;
+        }
+
+        .section-kicker {
+            color: #666c67;
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .section h2 {
+            font-size: 46px;
+            line-height: 1.1;
+            text-transform: uppercase;
+            margin-top: 8px;
+            letter-spacing: 2px;
+        }
+
+        .section-intro {
+            max-width: 650px;
+            margin-top: 15px;
+            color: #555a57;
+        }
+
+        /* =========================
+           ANIMALS
+        ========================= */
+
+        .animal-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .animal-card {
+            min-height: 400px;
+            position: relative;
+            overflow: hidden;
+            background: #4b4f4d;
+            color: white;
+            display: flex;
+            align-items: flex-end;
+        }
+
+        .animal-card:nth-child(1) {
+            background:
+                linear-gradient(transparent, #252827),
+                url("https://images.unsplash.com/photo-1557008075-7f2c5efa4cfd?auto=format&fit=crop&w=1000&q=80")
+                center/cover;
+        }
+
+        .animal-card:nth-child(2) {
+            background:
+                linear-gradient(transparent, #252827),
+                url("https://images.unsplash.com/photo-1516642499105-492ff3ac521b?auto=format&fit=crop&w=1000&q=80")
+                center/cover;
+        }
+
+        .animal-card:nth-child(3) {
+            background:
+                linear-gradient(transparent, #252827),
+                url("https://images.unsplash.com/photo-1561731216-c3a4d99437d5?auto=format&fit=crop&w=1000&q=80")
+                center/cover;
+        }
+
+        .animal-info {
+            padding: 30px;
+            width: 100%;
+        }
+
+        .animal-info small {
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #c2c4bd;
+        }
+
+        .animal-info h3 {
+            font-size: 32px;
+            text-transform: uppercase;
+            margin: 5px 0;
+        }
+
+        .animal-info a {
+            color: white;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* =========================
+           MAP
+        ========================= */
+
+        .map-section {
+            background: #363a38;
+            color: #e3e3dc;
+        }
+
+        .map-section .section {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .map-section .section-intro {
+            color: #b9bcb7;
+        }
+
+        .map {
+            min-height: 430px;
+            background:
+                linear-gradient(35deg, transparent 48%, #555c56 49%, #555c56 51%, transparent 52%),
+                linear-gradient(-35deg, transparent 48%, #555c56 49%, #555c56 51%, transparent 52%),
+                #afb1ab;
+            position: relative;
+            border: 8px solid #292c2b;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.35);
+        }
+
+        .map-title {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: #292c2b;
+            padding: 10px 15px;
+            font-size: 12px;
+            letter-spacing: 2px;
+        }
+
+        .map-area {
+            position: absolute;
+            padding: 15px;
+            background: rgba(50,54,52,0.85);
+            color: white;
+            font-size: 11px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .area-one {
+            top: 100px;
+            left: 50px;
+        }
+
+        .area-two {
+            top: 220px;
+            right: 50px;
+        }
+
+        .area-three {
+            bottom: 50px;
+            left: 120px;
+        }
+
+        .area-four {
+            bottom: 90px;
+            right: 80px;
+        }
+
+        /* =========================
+           VISIT
+        ========================= */
+
+        .visit-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .visit-card {
+            background: #d8d9d4;
+            padding: 35px;
+            border-top: 5px solid #626964;
+        }
+
+        .visit-card h3 {
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .visit-card p {
+            color: #5c615e;
+        }
+
+        /* =========================
+           NEWS
+        ========================= */
+
+        .news-section {
+            background: #b8bab5;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 20px;
+        }
+
+        .news-card {
+            background: #d7d8d3;
+            padding: 30px;
+            min-height: 230px;
+            border-bottom: 3px solid #666c67;
+        }
+
+        .news-date {
+            font-size: 11px;
+            letter-spacing: 2px;
+            color: #6b716d;
+            text-transform: uppercase;
+        }
+
+        .news-card h3 {
+            font-size: 22px;
+            text-transform: uppercase;
+            margin: 12px 0;
+        }
+
+        .news-card p {
+            color: #5b605d;
+            font-size: 14px;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            background: #242726;
+            color: #aaaFAA;
+            padding: 60px 35px 25px;
+        }
+
+        .footer-grid {
+            max-width: 1400px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+        }
+
+        footer h3 {
+            color: #e1e1db;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            font-size: 13px;
+            letter-spacing: 2px;
+        }
+
+        footer p,
+        footer a {
+            color: #969b97;
+            font-size: 13px;
+            text-decoration: none;
+        }
+
+        footer a {
+            display: block;
+            margin-bottom: 7px;
+        }
+
+        footer a:hover {
+            color: white;
+        }
+
+        .copyright {
+            max-width: 1400px;
+            margin: 50px auto 0;
+            padding-top: 20px;
+            border-top: 1px solid #444846;
+            font-size: 11px;
+            color: #696e6a;
+        }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 900px) {
+
+            nav {
+                display: none;
+            }
+
+            .topbar {
+                height: 70px;
+            }
+
+            .info-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .animal-grid,
+            .visit-grid,
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .map-section .section {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .hero {
+                min-height: 550px;
+            }
+
+            .hero-content {
+                padding: 50px 25px;
+            }
+
+            .section {
+                padding: 60px 20px;
+            }
+
+            .section h2 {
+                font-size: 34px;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .info-item {
+                padding: 18px 10px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+    <div class="topbar">
+
+        <div class="logo">
+            <div class="logo-mark">🦖</div>
+
+            <div>
+                <div class="logo-text">PREHISTORIC PARK</div>
+                <span class="logo-sub">WHERE THE PAST IS ALIVE</span>
+            </div>
+        </div>
+
+        <nav>
+            <a href="#animals">Animals</a>
+            <a href="#map">Park Map</a>
+            <a href="#visit">Visit</a>
+            <a href="#news">News</a>
+            <a href="#about">About</a>
+        </nav>
+
+    </div>
+</header>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="hero-kicker">
+            Welcome to Prehistoric Park
+        </div>
+
+        <h1>
+            The Past<br>
+            Is Alive.
+        </h1>
+
+        <p>
+            Experience the world's most extraordinary collection
+            of living prehistoric animals.
+        </p>
+
+        <a href="#animals" class="hero-button">
+            Explore the Animals
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     PARK STATISTICS
+========================= -->
+
+<section class="info-bar">
+
+    <div class="info-grid">
+
+        <div class="info-item">
+            <span class="info-number">47</span>
+            <span class="info-label">Species</span>
+        </div>
+
+        <div class="info-item">
+            <span class="info-number">12</span>
+            <span class="info-label">Habitats</span>
+        </div>
+
+        <div class="info-item">
+            <span class="info-number">365</span>
+            <span class="info-label">Days Open</span>
+        </div>
+
+        <div class="info-item">
+            <span class="info-number">1998</span>
+            <span class="info-label">Established</span>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     ANIMALS
+========================= -->
+
+<section class="section" id="animals">
+
+    <div class="section-header">
+
+        <div class="section-kicker">
+            Discover our animals
+        </div>
+
+        <h2>Meet the Residents</h2>
+
+        <p class="section-intro">
+            From enormous herbivores to some of the most dangerous
+            predators ever to walk the Earth, discover the animals
+            that call Prehistoric Park home.
+        </p>
+
+    </div>
+
+
+    <div class="animal-grid">
+
+        <div class="animal-card">
+
+            <div class="animal-info">
+                <small>Predator Range</small>
+                <h3>Tyrannosaurus Rex</h3>
+                <a href="#">View Animal →</a>
+            </div>
+
+        </div>
+
+
+        <div class="animal-card">
+
+            <div class="animal-info">
+                <small>Herbivore Plains</small>
+                <h3>Triceratops</h3>
+                <a href="#">View Animal →</a>
+            </div>
+
+        </div>
+
+
+        <div class="animal-card">
+
+            <div class="animal-info">
+                <small>Raptor Territory</small>
+                <h3>Velociraptor</h3>
+                <a href="#">View Animal →</a>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     MAP
+========================= -->
+
+<section class="map-section" id="map">
+
+    <div class="section">
+
+        <div>
+
+            <div class="section-kicker">
+                Explore the grounds
+            </div>
+
+            <h2>Park Map</h2>
+
+            <p class="section-intro">
+                Discover the habitats, visitor facilities and
+                research areas throughout Prehistoric Park.
+            </p>
+
+            <a href="#" class="hero-button">
+                View Full Map
+            </a>
+
+        </div>
+
+
+        <div class="map">
+
+            <div class="map-title">
+                PREHISTORIC PARK — GROUNDS
+            </div>
+
+            <div class="map-area area-one">
+                Herbivore Plains
+            </div>
+
+            <div class="map-area area-two">
+                Predator Range
+            </div>
+
+            <div class="map-area area-three">
+                Visitor Centre
+            </div>
+
+            <div class="map-area area-four">
+                Research Sector
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     VISIT
+========================= -->
+
+<section class="section" id="visit">
+
+    <div class="section-header">
+
+        <div class="section-kicker">
+            Plan your visit
+        </div>
+
+        <h2>Visitor Information</h2>
+
+        <p class="section-intro">
+            Everything you need to know before visiting
+            Prehistoric Park.
+        </p>
+
+    </div>
+
+
+    <div class="visit-grid">
+
+        <div class="visit-card">
+            <h3>Opening Hours</h3>
+            <p>
+                Open daily<br>
+                9:00 AM — 5:30 PM
+            </p>
+        </div>
+
+        <div class="visit-card">
+            <h3>Admission</h3>
+            <p>
+                Adults — $49<br>
+                Children — $29<br>
+                Family — $135
+            </p>
+        </div>
+
+        <div class="visit-card">
+            <h3>Visitor Centre</h3>
+            <p>
+                Information, dining, restrooms,
+                merchandise and first aid.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     NEWS
+========================= -->
+
+<section class="news-section" id="news">
+
+    <div class="section">
+
+        <div class="section-header">
+
+            <div class="section-kicker">
+                Latest information
+            </div>
+
+            <h2>Park News</h2>
+
+        </div>
+
+
+        <div class="news-grid">
+
+            <article class="news-card">
+
+                <div class="news-date">
+                    28 August 2026
+                </div>
+
+                <h3>
+                    New Viewing Platform Opens
+                </h3>
+
+                <p>
+                    Visitors can now experience our northern
+                    herbivore habitat from a new elevated
+                    viewing platform.
+                </p>
+
+            </article>
+
+
+            <article class="news-card">
+
+                <div class="news-date">
+                    14 August 2026
+                </div>
+
+                <h3>
+                    New Arrival
+                </h3>
+
+                <p>
+                    A new juvenile Triceratops has joined
+                    the park's growing herd.
+                </p>
+
+            </article>
+
+
+            <article class="news-card">
+
+                <div class="news-date">
+                    02 August 2026
+                </div>
+
+                <h3>
+                    Visitor Notice
+                </h3>
+
+                <p>
+                    Some areas of the park may be temporarily
+                    unavailable during your visit.
+                </p>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer id="about">
+
+    <div class="footer-grid">
+
+        <div>
+
+            <h3>Prehistoric Park</h3>
+
+            <p>
+                A world-class prehistoric wildlife
+                conservation and visitor facility.
+            </p>
+
+            <br>
+
+            <p>
+                Where the Past is Alive.
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <h3>Explore</h3>
+
+            <a href="#animals">Animals</a>
+            <a href="#map">Park Map</a>
+            <a href="#visit">Plan Your Visit</a>
+            <a href="#news">Park News</a>
+
+        </div>
+
+
+        <div>
+
+            <h3>Information</h3>
+
+            <a href="#">About the Park</a>
+            <a href="#">Conservation</a>
+            <a href="#">Research</a>
+            <a href="#">Contact</a>
+
+        </div>
+
+
+        <div>
+
+            <h3>Follow Us</h3>
+
+            <a href="#">Facebook</a>
+            <a href="#">Instagram</a>
+            <a href="#">YouTube</a>
+            <a href="#">TikTok</a>
+
+        </div>
+
+    </div>
+
+
+    <div class="copyright">
+
+        © 2026 Prehistoric Park. All rights reserved.
+
+    </div>
+
+</footer>
+
+</body>
+</html>
