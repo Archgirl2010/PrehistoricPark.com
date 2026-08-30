@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Animal Roster | Prehistoric Park</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #c6c8c3;
+    color: #252927;
+    line-height: 1.6;
+}
+
+/* ==============================
+   HEADER
+============================== */
+
+header {
+    background: #242726;
+    color: #dddeda;
+    border-bottom: 4px solid #687069;
+}
+
+.header-inner {
+    max-width: 1450px;
+    margin: auto;
+    min-height: 82px;
+    padding: 0 32px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.logo {
+    width: 48px;
+    height: 48px;
+
+    border: 2px solid #aeb2ad;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 24px;
+}
+
+.brand-name {
+    font-size: 22px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.brand-tagline {
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: #8e948e;
+}
+
+nav {
+    display: flex;
+}
+
+nav a {
+    color: #d7d9d5;
+    text-decoration: none;
+
+    padding: 31px 17px;
+
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+nav a:hover {
+    background: #414643;
+}
+
+/* ==============================
+   PAGE HEADER
+============================== */
+
+.page-header {
+    max-width: 1450px;
+    margin: auto;
+
+    padding: 75px 45px 45px;
+}
+
+.kicker {
+    color: #66706a;
+
+    font-size: 11px;
+    font-weight: bold;
+
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
+
+.page-header h1 {
+    margin-top: 8px;
+
+    font-size: clamp(45px, 6vw, 72px);
+
+    line-height: 1;
+
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+.page-header p {
+    max-width: 760px;
+
+    margin-top: 20px;
+
+    color: #555d58;
+
+    font-size: 16px;
+}
+
+/* ==============================
+   FILTER BAR
+============================== */
+
+.filter-section {
+    background: #343a37;
+
+    border-top: 1px solid #59605b;
+    border-bottom: 1px solid #59605b;
+}
+
+.filters {
+    max-width: 1450px;
+    margin: auto;
+
+    padding: 18px 45px;
+
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.filter {
+    padding: 10px 22px;
+
+    border: 1px solid #858c86;
+
+    background: transparent;
+
+    color: #d8dad5;
+
+    font-size: 10px;
+    font-weight: bold;
+
+    letter-spacing: 2px;
+    text-transform: uppercase;
+
+    text-decoration: none;
+}
+
+.filter.active,
+.filter:hover {
+    background: #d8dad5;
+    color: #252927;
+}
+
+/* ==============================
+   ROSTER
+============================== */
+
+.roster {
+    max-width: 1450px;
+    margin: auto;
+
+    padding: 65px 45px 100px;
+}
+
+.roster-heading {
+    display: flex;
+
+    align-items: baseline;
+    justify-content: space-between;
+
+    margin-bottom: 30px;
+}
+
+.roster-heading h2 {
+    font-size: 25px;
+
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.roster-count {
+    color: #6d756f;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* ==============================
+   ANIMAL GRID
+============================== */
+
+.animal-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 22px;
+}
+
+.animal-card {
+    background: #dedfda;
+
+    border-bottom: 5px solid #656d67;
+
+    transition: transform .2s ease,
+                box-shadow .2s ease;
+}
+
+.animal-card:hover {
+    transform: translateY(-4px);
+
+    box-shadow: 0 10px 25px rgba(0,0,0,.15);
+}
+
+.animal-photo {
+    height: 300px;
+
+    position: relative;
+
+    background-size: cover;
+    background-position: center;
+}
+
+.animal-photo::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(0,0,0,.02),
+            rgba(0,0,0,.55)
+        );
+}
+
+.photo-rex {
+    background-image:
+        url("https://images.unsplash.com/photo-1561731216-c3a4d99437d5?auto=format&fit=crop&w=1000&q=80");
+}
+
+.photo-triceratops {
+    background-image:
+        url("https://images.unsplash.com/photo-1557050543-4d5f4e07ef46?auto=format&fit=crop&w=1000&q=80");
+}
+
+.photo-mamenchisaurus {
+    background-image:
+        url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1000&q=80");
+}
+
+.photo-raptor {
+    background-image:
+        url("https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1000&q=80");
+}
+
+.photo-spinosaurus {
+    background-image:
+        url("https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1000&q=80");
+}
+
+.photo-ankylosaurus {
+    background-image:
+        url("https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1000&q=80");
+}
+
+.animal-photo-label {
+    position: absolute;
+
+    left: 20px;
+    bottom: 18px;
+
+    z-index: 2;
+
+    color: white;
+
+    font-size: 10px;
+    font-weight: bold;
+
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.animal-info {
+    padding: 25px;
+}
+
+.animal-zone {
+    color: #69716b;
+
+    font-size: 9px;
+    font-weight: bold;
+
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.animal-info h3 {
+    margin-top: 5px;
+
+    font-size: 25px;
+
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.animal-type {
+    margin-top: 4px;
+
+    color: #666e68;
+
+    font-size: 12px;
+    font-style: italic;
+}
+
+.animal-description {
+    margin-top: 15px;
+
+    min-height: 65px;
+
+    color: #59615b;
+
+    font-size: 13px;
+}
+
+.animal-link {
+    display: inline-block;
+
+    margin-top: 18px;
+
+    color: #252927;
+
+    font-size: 10px;
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+    text-decoration: underline;
+}
+
+/* ==============================
+   WARNING
+============================== */
+
+.warning {
+    margin-top: 70px;
+
+    background: #b0b3ad;
+
+    border-left: 5px solid #6a716c;
+
+    padding: 25px 30px;
+}
+
+.warning-title {
+    color: #39403b;
+
+    font-size: 10px;
+    font-weight: bold;
+
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.warning p {
+    margin-top: 7px;
+
+    color: #555c57;
+
+    font-size: 13px;
+}
+
+/* ==============================
+   FOOTER
+============================== */
+
+footer {
+    background: #222524;
+
+    color: #929792;
+
+    padding: 60px 45px 25px;
+}
+
+.footer-inner {
+    max-width: 1450px;
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+
+    gap: 50px;
+}
+
+footer h3 {
+    color: #dddeda;
+
+    margin-bottom: 15px;
+
+    font-size: 12px;
+
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+footer p,
+footer a {
+    color: #929792;
+
+    font-size: 13px;
+}
+
+footer a {
+    display: block;
+
+    margin-bottom: 8px;
+
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: white;
+}
+
+.copyright {
+    max-width: 1450px;
+
+    margin: 50px auto 0;
+
+    padding-top: 20px;
+
+    border-top: 1px solid #404542;
+
+    font-size: 10px;
+
+    color: #656b66;
+}
+
+/* ==============================
+   MOBILE
+============================== */
+
+@media(max-width:950px) {
+
+    .animal-grid {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+}
+
+@media(max-width:700px) {
+
+    nav {
+        display: none;
+    }
+
+    .header-inner {
+        justify-content: center;
+    }
+
+    .page-header,
+    .roster,
+    .filters {
+        padding-left: 22px;
+        padding-right: 22px;
+    }
+
+    .animal-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-inner {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- HEADER -->
+
+<header>
+
+<div class="header-inner">
+
+    <div class="brand">
+
+        <div class="logo">
+            🦖
+        </div>
+
+        <div>
+
+            <div class="brand-name">
+                PREHISTORIC PARK
+            </div>
+
+            <div class="brand-tagline">
+                WHERE THE PAST IS ALIVE
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <nav>
+
+        <a href="../index.html">
+            Home
+        </a>
+
+        <a href="index.html">
+            Animals
+        </a>
+
+        <a href="../index.html#map">
+            Park Map
+        </a>
+
+        <a href="../index.html#visit">
+            Visit
+        </a>
+
+        <a href="../index.html#news">
+            News
+        </a>
+
+        <a href="../index.html#about">
+            About
+        </a>
+
+    </nav>
+
+</div>
+
+</header>
+
+
+<!-- PAGE HEADER -->
+
+<section class="page-header">
+
+    <div class="kicker">
+        Discover our animals
+    </div>
+
+    <h1>
+        Animal Roster
+    </h1>
+
+    <p>
+        Meet the living inhabitants of Prehistoric Park.
+        Explore individual species, their natural history,
+        habitats and their place within the park.
+    </p>
+
+</section>
+
+
+<!-- FILTERS -->
+
+<section class="filter-section">
+
+<div class="filters">
+
+    <a href="#" class="filter active">
+        All Animals
+    </a>
+
+    <a href="#" class="filter">
+        Predators
+    </a>
+
+    <a href="#" class="filter">
+        Herbivores
+    </a>
+
+    <a href="#" class="filter">
+        Giants
+    </a>
+
+</div>
+
+</section>
+
+
+<!-- ROSTER -->
+
+<section class="roster">
+
+
+<div class="roster-heading">
+
+    <h2>
+        Featured Residents
+    </h2>
+
+    <div class="roster-count">
+        6 of 47 species
+    </div>
+
+</div>
+
+
+<div class="animal-grid">
+
+
+<!-- TYRANNOSAURUS -->
+
+<div class="animal-card">
+
+    <div class="animal-photo photo-rex">
+
+        <div class="animal-photo-label">
+            Predator Range
+        </div>
+
+    </div>
+
+    <div class="animal-info">
+
+        <div class="animal-zone">
+            Rex Hex
+        </div>
+
+        <h3>
+            Tyrannosaurus Rex
+        </h3>
+
+        <div class="animal-type">
+            Apex Predator
+        </div>
+
+        <p class="animal-description">
+            One of the most powerful terrestrial predators
+            ever to inhabit the Earth.
+        </p>
+
+        <a class="animal-link"
+           href="tyrannosaurus-rex.html">
+
+            View Animal →
+
+        </a>
+
+    </div>
+
+</div>
+
+
+<!-- TRICERATOPS -->
+
+<div class="animal-card">
+
+    <div class="animal-photo photo-triceratops">
+
+        <div class="animal-photo-label">
+            Herbivore Plains
+        </div>
+
+    </div>
+
+    <div class="animal-info">
+
+        <div class="animal-zone">
+            Humble Herds
+        </div>
+
+        <h3>
+            Triceratops
+        </h3>
+
+        <div class="animal-type">
+            Herbivore
+        </div>
+
+        <p class="animal-description">
+            A heavily built herbivore protected by a massive
+            skull, frill and three horns.
+        </p>
+
+        <a class="animal-link"
+           href="triceratops.html">
+
+            View Animal →
+
+        </a>
+
+    </div>
+
+</div>
+
+
+<!-- MAMENCHISAURUS -->
+
+<div class="animal-card">
+
+    <div class="animal-photo photo-mamenchisaurus">
+
+        <div class="animal-photo-label">
+            Giants of the Valley
+        </div>
+
+    </div>
+
+    <div class="animal-info">
+
+        <div class="animal-zone">
+            Giant Habitat
+        </div>
+
+        <h3>
+            Mamenchisaurus
+        </h3>
+
+        <div class="animal-type">
+            Giant Herbivore
+        </div>
+
+        <p class="animal-description">
+            A gigantic long-necked sauropod distinguished
+            by its extraordinary neck.
+        </p>
+
+        <a class="animal-link"
+           href="#">
+
+            View Animal →
+
+        </a>
+
+    </div>
+
+</div>
+
+
+<!-- VELOCIRAPTOR -->
+
+<div class="animal-card">
+
+    <div class="animal-photo photo-raptor">
+
+        <div class="animal-photo-label">
+            Raptor Territory
+        </div>
+
+    </div>
+
+    <div class="animal-info">
+
+        <div class="animal-zone">
+            Raptor Territory
+        </div>
+
+        <h3>
+            Velociraptor
+        </h3>
+
+        <div class="animal-type">
+            Pack Predator
+        </div>
+
+        <p class="animal-description">
+            A small, agile dromaeosaurid predator equipped
+            with a large sickle-shaped claw.
+        </p>
+
+        <a class="animal-link"
+           href="#">
+
+            View Animal →
+
+        </a>
+
+    </div>
+
+</div>
+
+
+<!-- SPINOSAURUS -->
+
+<div class="animal-card">
+
+    <div class="animal-photo photo-spinosaurus">
+
+        <div class="animal-photo-label">
+            Blackwater Sector
+        </div>
+
+    </div>
+
+    <div class="animal-info">
+
+        <div class="animal-zone">
+            Blackwater Sector
+        </div>
+
+        <h3>
+            Spinosaurus
+        </h3>
+
+        <div class="animal-type">
+            Aquatic Predator
+        </div>
+
+        <p class="animal-description">
+            A huge predator adapted to life around rivers,
+            wetlands and aquatic environments.
+        </p>
+
+        <a class="animal-link"
+           href="#">
+
+            View Animal →
+
+        </a>
+
+    </div>
+
+</div>
+
+
+<!-- ANKYLOSAURUS -->
+
+<div class="animal-card">
+
+    <div class="animal-photo photo-ankylosaurus">
+
+        <div class="animal-photo-label">
+            Lowland Reserve
+        </div>
+
+    </div>
+
+    <div class="animal-info">
+
+        <div class="animal-zone">
+            Lowland Reserve
+        </div>
+
+        <h3>
+            Ankylosaurus
+        </h3>
+
+        <div class="animal-type">
+            Armoured Herbivore
+        </div>
+
+        <p class="animal-description">
+            A heavily armoured herbivore equipped with a
+            powerful defensive tail club.
+        </p>
+
+        <a class="animal-link"
+           href="#">
+
+            View Animal →
+
+        </a>
+
+    </div>
+
+</div>
+
+
+</div>
+
+
+<!-- WARNING -->
+
+<div class="warning">
+
+    <div class="warning-title">
+        Visitor Information
+    </div>
+
+    <p>
+        Some species within Prehistoric Park are not visible
+        from standard visitor routes. Access restrictions may
+        apply depending on animal behaviour, habitat conditions
+        and current park operations.
+    </p>
+
+</div>
+
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+<div class="footer-inner">
+
+
+    <div>
+
+        <h3>
+            Prehistoric Park
+        </h3>
+
+        <p>
+            A world-class prehistoric wildlife
+            conservation and visitor facility.
+        </p>
+
+        <br>
+
+        <p>
+            Where the Past is Alive.
+        </p>
+
+    </div>
+
+
+    <div>
+
+        <h3>
+            Explore
+        </h3>
+
+        <a href="../index.html">
+            Home
+        </a>
+
+        <a href="index.html">
+            Animals
+        </a>
+
+        <a href="../index.html#map">
+            Park Map
+        </a>
+
+        <a href="../index.html#visit">
+            Plan Your Visit
+        </a>
+
+    </div>
+
+
+    <div>
+
+        <h3>
+            Information
+        </h3>
+
+        <a href="../index.html#about">
+            About the Park
+        </a>
+
+        <a href="#">
+            Conservation
+        </a>
+
+        <a href="#">
+            Research
+        </a>
+
+        <a href="#">
+            Contact
+        </a>
+
+    </div>
+
+
+    <div>
+
+        <h3>
+            Follow Us
+        </h3>
+
+        <a href="#">
+            Facebook
+        </a>
+
+        <a href="#">
+            Instagram
+        </a>
+
+        <a href="#">
+            YouTube
+        </a>
+
+        <a href="#">
+            TikTok
+        </a>
+
+    </div>
+
+
+</div>
+
+
+<div class="copyright">
+
+    © 2026 Prehistoric Park. All rights reserved.
+    &nbsp; | &nbsp;
+    PREHISTORIC PARK CONSERVATION AUTHORITY
+
+</div>
+
+</footer>
+
+
+</body>
+</html>
