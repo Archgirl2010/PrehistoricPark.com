@@ -1,0 +1,1157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Velociraptor | Prehistoric Park</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #c6c8c3;
+    color: #252927;
+    line-height: 1.6;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+header {
+    background: #242726;
+    color: #dddeda;
+    border-bottom: 4px solid #687069;
+}
+
+.header-inner {
+    max-width: 1450px;
+    margin: auto;
+    min-height: 82px;
+    padding: 0 32px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.logo {
+    width: 48px;
+    height: 48px;
+
+    border: 2px solid #aeb2ad;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 24px;
+}
+
+.brand-name {
+    font-size: 22px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.brand-tagline {
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: #8e948e;
+}
+
+nav {
+    display: flex;
+}
+
+nav a {
+    color: #d7d9d5;
+    text-decoration: none;
+
+    padding: 31px 17px;
+
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+nav a:hover {
+    background: #414643;
+}
+
+/* =========================
+   BREADCRUMB
+========================= */
+
+.breadcrumb {
+    max-width: 1450px;
+    margin: auto;
+
+    padding: 22px 45px 10px;
+
+    color: #66706a;
+
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.breadcrumb a {
+    color: #66706a;
+    text-decoration: none;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.animal-hero {
+    max-width: 1450px;
+    margin: auto;
+
+    padding: 25px 45px 65px;
+}
+
+.animal-image {
+    height: 520px;
+
+    background:
+        linear-gradient(
+            rgba(25,29,27,.18),
+            rgba(25,29,27,.86)
+        ),
+        url("https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&w=1800&q=85")
+        center / cover;
+
+    position: relative;
+
+    display: flex;
+    align-items: flex-end;
+
+    overflow: hidden;
+}
+
+.animal-title {
+    padding: 50px;
+
+    color: white;
+}
+
+.animal-classification {
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+
+    color: #c8cbc5;
+}
+
+.animal-title h1 {
+    font-size: clamp(50px, 7vw, 92px);
+
+    line-height: .95;
+
+    text-transform: uppercase;
+    letter-spacing: 3px;
+
+    text-shadow: 2px 3px 10px #000;
+}
+
+.scientific {
+    margin-top: 10px;
+
+    font-size: 18px;
+    font-style: italic;
+
+    color: #d1d3ce;
+}
+
+/* =========================
+   QUICK FACTS
+========================= */
+
+.quick-facts {
+    background: #343a37;
+    color: #dedfd9;
+}
+
+.facts-grid {
+    max-width: 1450px;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+}
+
+.fact {
+    padding: 25px 20px;
+
+    border-right: 1px solid #5e655f;
+}
+
+.fact:last-child {
+    border-right: none;
+}
+
+.fact-label {
+    display: block;
+
+    color: #9da39d;
+
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.fact-value {
+    display: block;
+
+    margin-top: 4px;
+
+    font-size: 15px;
+    font-weight: bold;
+}
+
+/* =========================
+   CONTENT
+========================= */
+
+.content {
+    max-width: 1450px;
+    margin: auto;
+
+    padding: 80px 45px;
+}
+
+.content-grid {
+    display: grid;
+
+    grid-template-columns: 2fr 1fr;
+
+    gap: 70px;
+}
+
+.kicker {
+    color: #66706a;
+
+    font-size: 11px;
+    font-weight: bold;
+
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
+
+h2 {
+    margin-top: 7px;
+
+    font-size: 38px;
+
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.content p {
+    margin-top: 18px;
+
+    color: #555d58;
+
+    font-size: 15px;
+}
+
+.text-section {
+    margin-bottom: 55px;
+}
+
+/* =========================
+   PARK PANEL
+========================= */
+
+.park-panel {
+    background: #dcded8;
+
+    border-top: 5px solid #626b64;
+
+    padding: 30px;
+
+    height: fit-content;
+}
+
+.park-panel h3 {
+    font-size: 17px;
+
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.park-row {
+    padding: 18px 0;
+
+    border-bottom: 1px solid #b8bbb5;
+}
+
+.park-row:last-child {
+    border-bottom: none;
+}
+
+.park-label {
+    display: block;
+
+    color: #6b736d;
+
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.park-value {
+    display: block;
+
+    margin-top: 4px;
+
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* =========================
+   BEHAVIOUR
+========================= */
+
+.behaviour {
+    background: #b7bab4;
+}
+
+.behaviour-inner {
+    max-width: 1450px;
+    margin: auto;
+
+    padding: 70px 45px;
+}
+
+.behaviour-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3,1fr);
+
+    gap: 20px;
+
+    margin-top: 40px;
+}
+
+.behaviour-card {
+    background: #d9dad5;
+
+    padding: 30px;
+
+    border-top: 4px solid #666e68;
+}
+
+.behaviour-card h3 {
+    font-size: 16px;
+
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.behaviour-card p {
+    margin-top: 12px;
+
+    color: #59605b;
+
+    font-size: 14px;
+}
+
+/* =========================
+   RESTRICTED NOTICE
+========================= */
+
+.notice {
+    max-width: 1450px;
+    margin: auto;
+
+    padding: 0 45px 80px;
+}
+
+.notice-inner {
+    background: #aeb1ab;
+
+    border-left: 5px solid #626963;
+
+    padding: 28px 30px;
+}
+
+.notice-title {
+    font-size: 10px;
+    font-weight: bold;
+
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.notice-inner p {
+    margin-top: 8px;
+
+    color: #4f5651;
+
+    font-size: 13px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    background: #222524;
+
+    color: #929792;
+
+    padding: 60px 45px 25px;
+}
+
+.footer-inner {
+    max-width: 1450px;
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+
+    gap: 50px;
+}
+
+footer h3 {
+    color: #dddeda;
+
+    margin-bottom: 15px;
+
+    font-size: 12px;
+
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+footer p,
+footer a {
+    color: #929792;
+
+    font-size: 13px;
+}
+
+footer a {
+    display: block;
+
+    margin-bottom: 8px;
+
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: white;
+}
+
+.copyright {
+    max-width: 1450px;
+
+    margin: 50px auto 0;
+
+    padding-top: 20px;
+
+    border-top: 1px solid #404542;
+
+    font-size: 10px;
+
+    color: #656b66;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:900px) {
+
+    nav {
+        display: none;
+    }
+
+    .facts-grid {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .fact {
+        border-bottom: 1px solid #5e655f;
+    }
+
+    .content-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .behaviour-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-inner {
+        grid-template-columns: 1fr 1fr;
+    }
+
+}
+
+@media(max-width:600px) {
+
+    .animal-image {
+        height: 500px;
+    }
+
+    .animal-title {
+        padding: 30px;
+    }
+
+    .content,
+    .behaviour-inner,
+    .notice {
+        padding-left: 22px;
+        padding-right: 22px;
+    }
+
+    h2 {
+        font-size: 30px;
+    }
+
+    .footer-inner {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- HEADER -->
+
+<header>
+
+<div class="header-inner">
+
+    <div class="brand">
+
+        <div class="logo">
+            🦖
+        </div>
+
+        <div>
+
+            <div class="brand-name">
+                PREHISTORIC PARK
+            </div>
+
+            <div class="brand-tagline">
+                WHERE THE PAST IS ALIVE
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <nav>
+
+        <a href="../index.html">
+            Home
+        </a>
+
+        <a href="index.html">
+            Animals
+        </a>
+
+        <a href="../index.html#map">
+            Park Map
+        </a>
+
+        <a href="../index.html#visit">
+            Visit
+        </a>
+
+        <a href="../index.html#news">
+            News
+        </a>
+
+        <a href="../index.html#about">
+            About
+        </a>
+
+    </nav>
+
+</div>
+
+</header>
+
+
+<!-- BREADCRUMB -->
+
+<div class="breadcrumb">
+
+    <a href="../index.html">
+        Home
+    </a>
+
+    &nbsp; / &nbsp;
+
+    <a href="index.html">
+        Animals
+    </a>
+
+    &nbsp; / &nbsp;
+
+    Velociraptor
+
+</div>
+
+
+<!-- HERO -->
+
+<section class="animal-hero">
+
+<div class="animal-image">
+
+    <div class="animal-title">
+
+        <div class="animal-classification">
+            Raptor Territory
+        </div>
+
+        <h1>
+            Velociraptor
+        </h1>
+
+        <div class="scientific">
+            Velociraptor mongoliensis
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- QUICK FACTS -->
+
+<section class="quick-facts">
+
+<div class="facts-grid">
+
+    <div class="fact">
+
+        <span class="fact-label">
+            Period
+        </span>
+
+        <span class="fact-value">
+            Late Cretaceous
+        </span>
+
+    </div>
+
+
+    <div class="fact">
+
+        <span class="fact-label">
+            Diet
+        </span>
+
+        <span class="fact-value">
+            Carnivore
+        </span>
+
+    </div>
+
+
+    <div class="fact">
+
+        <span class="fact-label">
+            Length
+        </span>
+
+        <span class="fact-value">
+            2 metres
+        </span>
+
+    </div>
+
+
+    <div class="fact">
+
+        <span class="fact-label">
+            Weight
+        </span>
+
+        <span class="fact-value">
+            Approximately 15 kg
+        </span>
+
+    </div>
+
+
+    <div class="fact">
+
+        <span class="fact-label">
+            Range
+        </span>
+
+        <span class="fact-value">
+            Central Asia
+        </span>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- CONTENT -->
+
+<section class="content">
+
+<div class="content-grid">
+
+
+<div>
+
+
+    <div class="text-section">
+
+        <div class="kicker">
+            About the species
+        </div>
+
+        <h2>
+            Velociraptor
+        </h2>
+
+        <p>
+            Velociraptor mongoliensis was a relatively small
+            dromaeosaurid dinosaur that lived during the Late
+            Cretaceous Period, approximately 75 to 71 million
+            years ago.
+        </p>
+
+        <p>
+            Despite its relatively small size, Velociraptor was
+            an active predator. It possessed a long tail, a narrow
+            skull and a large curved claw on the second toe of
+            each foot.
+        </p>
+
+        <p>
+            Fossil evidence also indicates that Velociraptor
+            possessed feathers, although it could not fly.
+        </p>
+
+    </div>
+
+
+    <div class="text-section">
+
+        <div class="kicker">
+            Habitat &amp; Range
+        </div>
+
+        <h2>
+            Where It Lived
+        </h2>
+
+        <p>
+            Velociraptor fossils are known primarily from what
+            is now Mongolia and surrounding regions of Central
+            Asia.
+        </p>
+
+        <p>
+            Its environment included arid landscapes, sand dunes,
+            temporary waterways and areas of vegetation.
+        </p>
+
+    </div>
+
+
+    <div class="text-section">
+
+        <div class="kicker">
+            Diet
+        </div>
+
+        <h2>
+            What It Ate
+        </h2>
+
+        <p>
+            Velociraptor was a carnivore. Its diet likely included
+            small animals and reptiles, although larger prey may
+            occasionally have been targeted.
+        </p>
+
+        <p>
+            One famous fossil preserves a Velociraptor apparently
+            engaged in combat with a Protoceratops, providing rare
+            evidence of predator-prey interaction.
+        </p>
+
+    </div>
+
+
+    <div class="text-section">
+
+        <div class="kicker">
+            Behaviour
+        </div>
+
+        <h2>
+            How It Lived
+        </h2>
+
+        <p>
+            Velociraptor was likely an agile and active predator.
+            Its long hind limbs and stiffened tail would have
+            provided balance while moving quickly across its
+            environment.
+        </p>
+
+        <p>
+            The extent to which Velociraptor hunted cooperatively
+            in groups remains uncertain. Popular depictions of
+            coordinated pack hunting go beyond what the fossil
+            evidence can currently establish.
+        </p>
+
+    </div>
+
+
+</div>
+
+
+<!-- PARK PANEL -->
+
+<aside class="park-panel">
+
+    <h3>
+        At Prehistoric Park
+    </h3>
+
+
+    <div class="park-row">
+
+        <span class="park-label">
+            Park Location
+        </span>
+
+        <span class="park-value">
+            Raptor Territory
+        </span>
+
+    </div>
+
+
+    <div class="park-row">
+
+        <span class="park-label">
+            Sector
+        </span>
+
+        <span class="park-value">
+            Sector 06
+        </span>
+
+    </div>
+
+
+    <div class="park-row">
+
+        <span class="park-label">
+            Habitat
+        </span>
+
+        <span class="park-value">
+            Enclosed Raptor Habitat
+        </span>
+
+    </div>
+
+
+    <div class="park-row">
+
+        <span class="park-label">
+            Viewing Area
+        </span>
+
+        <span class="park-value">
+            Elevated Observation Walkway
+        </span>
+
+    </div>
+
+
+    <div class="park-row">
+
+        <span class="park-label">
+            Population
+        </span>
+
+        <span class="park-value">
+            21 animals
+        </span>
+
+    </div>
+
+
+    <div class="park-row">
+
+        <span class="park-label">
+            Public Access
+        </span>
+
+        <span class="park-value">
+            Restricted Viewing
+        </span>
+
+    </div>
+
+</aside>
+
+
+</div>
+
+</section>
+
+
+<!-- BEHAVIOUR -->
+
+<section class="behaviour">
+
+<div class="behaviour-inner">
+
+    <div class="kicker">
+        Understanding the animal
+    </div>
+
+    <h2>
+        Behaviour
+    </h2>
+
+
+    <div class="behaviour-grid">
+
+
+        <div class="behaviour-card">
+
+            <h3>
+                Hunting
+            </h3>
+
+            <p>
+                Velociraptor possessed a large curved toe claw
+                that was likely used during attacks or to restrain
+                prey.
+            </p>
+
+        </div>
+
+
+        <div class="behaviour-card">
+
+            <h3>
+                Movement
+            </h3>
+
+            <p>
+                Its long hind limbs and balancing tail indicate
+                an animal adapted for active terrestrial movement.
+            </p>
+
+        </div>
+
+
+        <div class="behaviour-card">
+
+            <h3>
+                Feathers
+            </h3>
+
+            <p>
+                Fossil evidence shows that Velociraptor had
+                feathers. These were primarily associated with
+                insulation, display or other functions rather
+                than powered flight.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- PARK NOTICE -->
+
+<section class="notice">
+
+<div class="notice-inner">
+
+    <div class="notice-title">
+        Visitor Notice
+    </div>
+
+    <p>
+        Raptor Territory is a restricted viewing area.
+        Visitors must remain behind designated barriers at all
+        times. Do not approach the perimeter fencing or attempt
+        to attract the attention of the animals.
+    </p>
+
+</div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+<div class="footer-inner">
+
+
+    <div>
+
+        <h3>
+            Prehistoric Park
+        </h3>
+
+        <p>
+            A world-class prehistoric wildlife
+            conservation and visitor facility.
+        </p>
+
+        <br>
+
+        <p>
+            Where the Past is Alive.
+        </p>
+
+    </div>
+
+
+    <div>
+
+        <h3>
+            Explore
+        </h3>
+
+        <a href="../index.html">
+            Home
+        </a>
+
+        <a href="index.html">
+            Animals
+        </a>
+
+        <a href="../index.html#map">
+            Park Map
+        </a>
+
+        <a href="../index.html#visit">
+            Plan Your Visit
+        </a>
+
+    </div>
+
+
+    <div>
+
+        <h3>
+            Information
+        </h3>
+
+        <a href="../index.html#about">
+            About the Park
+        </a>
+
+        <a href="#">
+            Conservation
+        </a>
+
+        <a href="#">
+            Research
+        </a>
+
+        <a href="#">
+            Contact
+        </a>
+
+    </div>
+
+
+    <div>
+
+        <h3>
+            Follow Us
+        </h3>
+
+        <a href="#">
+            Facebook
+        </a>
+
+        <a href="#">
+            Instagram
+        </a>
+
+        <a href="#">
+            YouTube
+        </a>
+
+        <a href="#">
+            TikTok
+        </a>
+
+    </div>
+
+
+</div>
+
+
+<div class="copyright">
+
+    © 2026 Prehistoric Park. All rights reserved.
+    &nbsp; | &nbsp;
+    PREHISTORIC PARK CONSERVATION AUTHORITY
+
+</div>
+
+</footer>
+
+
+</body>
+</html>
