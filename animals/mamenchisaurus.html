@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Mamenchisaurus | Prehistoric Park</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #c8cbc7;
+    color: #25313a;
+    line-height: 1.6;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+header {
+    background: #202523;
+    color: #e4e5df;
+    height: 78px;
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 4px solid #666d68;
+}
+
+.header-inner {
+    width: 100%;
+    max-width: 1280px;
+    margin: auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.logo-circle {
+    width: 44px;
+    height: 44px;
+    border: 2px solid #b8bbb5;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 21px;
+}
+
+.logo-text {
+    font-size: 21px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.logo-sub {
+    display: block;
+    font-size: 8px;
+    letter-spacing: 3px;
+    color: #9da29e;
+    margin-top: -2px;
+}
+
+nav {
+    display: flex;
+    gap: 32px;
+}
+
+nav a {
+    color: #e1e2dd;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+nav a:hover {
+    color: #aaa;
+}
+
+/* =========================
+   MAIN
+========================= */
+
+.container {
+    max-width: 1280px;
+    margin: auto;
+    padding: 0 20px;
+}
+
+/* =========================
+   BREADCRUMBS
+========================= */
+
+.breadcrumbs {
+    padding: 24px 0;
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: #59645f;
+}
+
+.breadcrumbs a {
+    color: #59645f;
+    text-decoration: none;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    height: 480px;
+    background-image:
+        linear-gradient(rgba(25,29,27,0.28), rgba(25,29,27,0.62)),
+        url("https://images.unsplash.com/photo-1549366021-9f761d450615?auto=format&fit=crop&w=1800&q=80");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: flex-end;
+    padding: 55px;
+    color: white;
+}
+
+.hero-label {
+    font-size: 12px;
+    letter-spacing: 4px;
+    margin-bottom: 10px;
+    color: #d3d5cf;
+}
+
+.hero h1 {
+    font-size: 68px;
+    line-height: 1;
+    letter-spacing: 2px;
+    text-shadow: 3px 3px 8px #111;
+}
+
+.hero-scientific {
+    margin-top: 14px;
+    font-size: 17px;
+    font-style: italic;
+    color: #ddd;
+}
+
+/* =========================
+   FACT BAR
+========================= */
+
+.fact-bar {
+    background: #303633;
+    color: #e4e5df;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+}
+
+.fact {
+    padding: 20px 28px;
+    border-right: 1px solid #59605c;
+}
+
+.fact:last-child {
+    border-right: none;
+}
+
+.fact-label {
+    display: block;
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: #aeb3ae;
+    margin-bottom: 5px;
+}
+
+.fact-value {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+/* =========================
+   CONTENT
+========================= */
+
+.content {
+    padding: 75px 0;
+}
+
+.content-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 70px;
+}
+
+.section {
+    margin-bottom: 65px;
+}
+
+.section-label {
+    font-size: 10px;
+    letter-spacing: 4px;
+    color: #65716d;
+    margin-bottom: 12px;
+}
+
+.section h2 {
+    font-size: 34px;
+    letter-spacing: 2px;
+    margin-bottom: 25px;
+}
+
+.section p {
+    color: #4e6068;
+    font-size: 15px;
+    margin-bottom: 18px;
+}
+
+/* =========================
+   PARK PANEL
+========================= */
+
+.park-panel {
+    background: #dedfdb;
+    border-top: 5px solid #626a65;
+    padding: 30px;
+    align-self: start;
+}
+
+.park-panel h3 {
+    font-size: 18px;
+    letter-spacing: 1px;
+    margin-bottom: 25px;
+}
+
+.park-item {
+    padding: 18px 0;
+    border-bottom: 1px solid #bfc2bd;
+}
+
+.park-item:last-child {
+    border-bottom: none;
+}
+
+.park-label {
+    display: block;
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: #69736e;
+    margin-bottom: 5px;
+}
+
+.park-value {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    background: #202523;
+    color: #aeb2ae;
+    padding: 55px 0 25px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 50px;
+}
+
+footer h3 {
+    color: #e2e3df;
+    font-size: 13px;
+    letter-spacing: 2px;
+    margin-bottom: 18px;
+}
+
+footer p,
+footer a {
+    color: #9da39e;
+    font-size: 13px;
+    line-height: 2;
+    text-decoration: none;
+}
+
+.footer-bottom {
+    border-top: 1px solid #454b48;
+    margin-top: 40px;
+    padding-top: 20px;
+    font-size: 11px;
+    color: #747b77;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 800px) {
+
+    nav {
+        display: none;
+    }
+
+    .hero {
+        height: 400px;
+        padding: 30px;
+    }
+
+    .hero h1 {
+        font-size: 42px;
+    }
+
+    .fact-bar {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .fact {
+        border-bottom: 1px solid #59605c;
+    }
+
+    .content-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="header-inner">
+
+        <div class="logo">
+            <div class="logo-circle">🦕</div>
+
+            <div>
+                <div class="logo-text">PREHISTORIC PARK</div>
+                <span class="logo-sub">WHERE THE PAST IS ALIVE</span>
+            </div>
+        </div>
+
+        <nav>
+            <a href="../index.html">HOME</a>
+            <a href="../index.html#animals">ANIMALS</a>
+            <a href="../index.html#map">PARK MAP</a>
+            <a href="../index.html#visit">VISIT</a>
+            <a href="../index.html#news">NEWS</a>
+            <a href="../index.html#about">ABOUT</a>
+        </nav>
+
+    </div>
+</header>
+
+
+<main>
+
+<div class="container">
+
+    <div class="breadcrumbs">
+        <a href="../index.html">HOME</a>
+        &nbsp; / &nbsp;
+        <a href="../index.html#animals">ANIMALS</a>
+        &nbsp; / &nbsp;
+        MAMENCHISAURUS
+    </div>
+
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <div>
+
+            <div class="hero-label">
+                GIANTS OF THE VALLEY
+            </div>
+
+            <h1>MAMENCHISAURUS</h1>
+
+            <div class="hero-scientific">
+                Mamenchisaurus
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FACTS -->
+
+    <section class="fact-bar">
+
+        <div class="fact">
+            <span class="fact-label">PERIOD</span>
+            <span class="fact-value">Late Jurassic</span>
+        </div>
+
+        <div class="fact">
+            <span class="fact-label">DIET</span>
+            <span class="fact-value">Herbivore</span>
+        </div>
+
+        <div class="fact">
+            <span class="fact-label">LENGTH</span>
+            <span class="fact-value">15–18 metres</span>
+        </div>
+
+        <div class="fact">
+            <span class="fact-label">WEIGHT</span>
+            <span class="fact-value">15–25 tonnes</span>
+        </div>
+
+        <div class="fact">
+            <span class="fact-label">RANGE</span>
+            <span class="fact-value">Eastern Asia</span>
+        </div>
+
+    </section>
+
+
+    <!-- INFORMATION -->
+
+    <section class="content">
+
+        <div class="content-grid">
+
+            <div>
+
+                <div class="section">
+
+                    <div class="section-label">
+                        ABOUT THE SPECIES
+                    </div>
+
+                    <h2>MAMENCHISAURUS</h2>
+
+                    <p>
+                        Mamenchisaurus was a gigantic long-necked sauropod
+                        dinosaur that lived during the Late Jurassic Period,
+                        approximately 160 to 145 million years ago.
+                    </p>
+
+                    <p>
+                        It is particularly famous for its extraordinary neck,
+                        which could account for roughly half of its total body
+                        length. Its long neck allowed it to reach vegetation
+                        across a wide feeding area without constantly moving
+                        its enormous body.
+                    </p>
+
+                </div>
+
+
+                <div class="section">
+
+                    <div class="section-label">
+                        HABITAT &amp; RANGE
+                    </div>
+
+                    <h2>WHERE IT LIVED</h2>
+
+                    <p>
+                        Fossils of Mamenchisaurus have been discovered in
+                        what is now China, particularly in deposits that
+                        preserve ancient floodplains, forests and seasonal
+                        environments.
+                    </p>
+
+                    <p>
+                        The species lived in landscapes containing abundant
+                        vegetation and water sources, supporting large
+                        populations of plant-eating dinosaurs.
+                    </p>
+
+                </div>
+
+
+                <div class="section">
+
+                    <div class="section-label">
+                        DIET
+                    </div>
+
+                    <h2>WHAT IT ATE</h2>
+
+                    <p>
+                        Mamenchisaurus was a herbivore. Its long neck allowed
+                        it to reach vegetation at different heights, giving it
+                        access to leaves and plant material unavailable to
+                        many other herbivores.
+                    </p>
+
+                    <p>
+                        Its diet likely consisted of leaves, shoots, ferns,
+                        branches and other vegetation available in its
+                        environment.
+                    </p>
+
+                </div>
+
+
+                <div class="section">
+
+                    <div class="section-label">
+                        BEHAVIOUR
+                    </div>
+
+                    <h2>HOW IT LIVED</h2>
+
+                    <p>
+                        Mamenchisaurus was a large, slow-moving herbivore.
+                        Its enormous size would have provided protection from
+                        many predators, while its long neck allowed it to
+                        feed across a broad area.
+                    </p>
+
+                    <p>
+                        Scientists believe large sauropods may have travelled
+                        in groups or loose herds, although the exact social
+                        behaviour of Mamenchisaurus remains uncertain.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- PARK INFORMATION -->
+
+            <aside class="park-panel">
+
+                <h3>AT PREHISTORIC PARK</h3>
+
+                <div class="park-item">
+                    <span class="park-label">PARK LOCATION</span>
+                    <span class="park-value">Humble Herds</span>
+                </div>
+
+                <div class="park-item">
+                    <span class="park-label">SECTOR</span>
+                    <span class="park-value">Sector 07</span>
+                </div>
+
+                <div class="park-item">
+                    <span class="park-label">HABITAT</span>
+                    <span class="park-value">
+                        Southern Valley
+                    </span>
+                </div>
+
+                <div class="park-item">
+                    <span class="park-label">VIEWING AREA</span>
+                    <span class="park-value">
+                        Western Observation Platform
+                    </span>
+                </div>
+
+                <div class="park-item">
+                    <span class="park-label">POPULATION</span>
+                    <span class="park-value">
+                        8 animals
+                    </span>
+                </div>
+
+                <div class="park-item">
+                    <span class="park-label">PUBLIC ACCESS</span>
+                    <span class="park-value">
+                        Viewing Platform
+                    </span>
+                </div>
+
+            </aside>
+
+        </div>
+
+    </section>
+
+</div>
+
+</main>
+
+
+<footer>
+
+<div class="container">
+
+    <div class="footer-grid">
+
+        <div>
+            <h3>PREHISTORIC PARK</h3>
+
+            <p>
+                A world-class prehistoric wildlife conservation
+                and visitor facility.
+            </p>
+
+            <p>
+                Where the Past is Alive.
+            </p>
+        </div>
+
+
+        <div>
+            <h3>EXPLORE</h3>
+
+            <p>
+                <a href="../index.html#animals">Animals</a><br>
+                <a href="../index.html#map">Park Map</a><br>
+                <a href="../index.html#visit">Plan Your Visit</a><br>
+                <a href="../index.html#news">Park News</a>
+            </p>
+        </div>
+
+
+        <div>
+            <h3>INFORMATION</h3>
+
+            <p>
+                <a href="../index.html#about">About the Park</a><br>
+                <a href="../index.html#about">Conservation</a><br>
+                <a href="../index.html#about">Research</a><br>
+                <a href="../index.html#about">Contact</a>
+            </p>
+        </div>
+
+
+        <div>
+            <h3>FOLLOW US</h3>
+
+            <p>
+                Facebook<br>
+                Instagram<br>
+                YouTube<br>
+                TikTok
+            </p>
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+        © 2026 Prehistoric Park. All rights reserved.
+        &nbsp; | &nbsp;
+        PREHISTORIC PARK CONSERVATION AUTHORITY
+    </div>
+
+</div>
+
+</footer>
+
+</body>
+</html>
