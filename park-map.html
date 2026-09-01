@@ -1,0 +1,1093 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Park Map | Prehistoric Park</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #c9cbc6;
+    color: #202725;
+}
+
+/* ==============================
+   HEADER
+============================== */
+
+header {
+    background: #242726;
+    color: #dddeda;
+    border-bottom: 4px solid #687069;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-inner {
+    max-width: 1450px;
+    margin: auto;
+    min-height: 82px;
+    padding: 0 32px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.logo {
+    width: 48px;
+    height: 48px;
+
+    border: 2px solid #aeb2ad;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 25px;
+}
+
+.brand-name {
+    font-size: 22px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.brand-tagline {
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: #8e948e;
+    margin-top: 2px;
+}
+
+nav {
+    display: flex;
+}
+
+nav a {
+    color: #d7d9d5;
+    text-decoration: none;
+
+    padding: 31px 17px;
+
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+nav a:hover {
+    background: #414643;
+}
+
+/* ==============================
+   PAGE INTRO
+============================== */
+
+.intro-section {
+    max-width: 1450px;
+    margin: auto;
+    padding: 75px 45px 35px;
+}
+
+.kicker {
+    color: #65706a;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
+
+h1 {
+    margin-top: 8px;
+    font-size: 58px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.intro-text {
+    max-width: 720px;
+    margin-top: 18px;
+    color: #59605c;
+    font-size: 17px;
+    line-height: 1.5;
+}
+
+/* ==============================
+   MAP AREA
+============================== */
+
+.map-wrapper {
+    max-width: 1450px;
+    margin: auto;
+    padding: 25px 45px 90px;
+}
+
+.map {
+    position: relative;
+    width: 100%;
+    min-height: 850px;
+
+    overflow: hidden;
+
+    background: #285b24;
+
+    border: 12px solid #222624;
+    border-radius: 8px;
+
+    box-shadow: 0 18px 45px rgba(0,0,0,.3);
+}
+
+/* Park border */
+
+.map::before {
+    content: "";
+    position: absolute;
+    inset: 18px;
+
+    border: 4px solid rgba(210,225,173,.55);
+    border-radius: 35px;
+
+    pointer-events: none;
+}
+
+/* ==============================
+   ROADS
+============================== */
+
+.road {
+    position: absolute;
+    background: #d6c99b;
+    border-radius: 30px;
+    z-index: 2;
+}
+
+.road-main {
+    width: 70%;
+    height: 13px;
+    left: 15%;
+    top: 54%;
+    transform: rotate(-10deg);
+}
+
+.road-central {
+    width: 13px;
+    height: 42%;
+    left: 51%;
+    top: 39%;
+}
+
+.road-west {
+    width: 52%;
+    height: 12px;
+    left: 18%;
+    top: 38%;
+    transform: rotate(-25deg);
+}
+
+.road-east {
+    width: 45%;
+    height: 12px;
+    left: 49%;
+    top: 40%;
+    transform: rotate(18deg);
+}
+
+.road-south {
+    width: 50%;
+    height: 12px;
+    left: 25%;
+    top: 72%;
+    transform: rotate(8deg);
+}
+
+/* ==============================
+   ZONE BASE
+============================== */
+
+.zone {
+    position: absolute;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    color: white;
+
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+
+    border: 4px solid rgba(255,255,255,.25);
+
+    box-shadow: inset 0 0 35px rgba(0,0,0,.2),
+                0 8px 18px rgba(0,0,0,.2);
+
+    cursor: pointer;
+
+    transition:
+        transform .2s ease,
+        filter .2s ease,
+        box-shadow .2s ease;
+}
+
+.zone:hover {
+    transform: scale(1.035);
+    filter: brightness(1.12);
+
+    box-shadow: inset 0 0 35px rgba(0,0,0,.15),
+                0 12px 28px rgba(0,0,0,.35);
+    z-index: 20;
+}
+
+.zone span {
+    position: relative;
+    z-index: 2;
+
+    padding: 8px 14px;
+
+    background: rgba(20,35,25,.72);
+    border-radius: 4px;
+
+    font-size: 13px;
+}
+
+/* ==============================
+   MAJOR ATTRACTIONS
+============================== */
+
+.giants {
+    top: 5%;
+    right: 4%;
+    width: 42%;
+    height: 34%;
+
+    background: #83a875;
+
+    border-radius: 45% 40% 50% 35%;
+}
+
+.giants::after {
+    content: "";
+    position: absolute;
+
+    width: 70%;
+    height: 15px;
+
+    background: #1688bf;
+
+    border-radius: 50%;
+
+    transform: rotate(25deg);
+}
+
+/* Humble Herds */
+
+.herds {
+    top: 34%;
+    left: 27%;
+    width: 31%;
+    height: 31%;
+
+    background: #477a39;
+
+    border-radius: 38% 48% 42% 35%;
+}
+
+/* Spike Hike */
+
+.spike {
+    top: 42%;
+    right: 5%;
+    width: 27%;
+    height: 21%;
+
+    background: #668d48;
+
+    border-radius: 35% 45% 30% 40%;
+}
+
+/* Raptor Ranch */
+
+.raptor {
+    top: 8%;
+    left: 3%;
+    width: 23%;
+    height: 17%;
+
+    background: #70653d;
+
+    border-radius: 25px;
+}
+
+/* Winged Heights */
+
+.winged {
+    top: 25%;
+    left: 15%;
+    width: 22%;
+    height: 15%;
+
+    background: #9ba9b2;
+
+    border-radius: 45% 45% 50% 50%;
+}
+
+/* Cave */
+
+.cave {
+    top: 4%;
+    left: 28%;
+    width: 17%;
+    height: 12%;
+
+    background: #555653;
+
+    border-radius: 45% 45% 25% 25%;
+}
+
+/* Hunters Swamps */
+
+.swamps {
+    top: 34%;
+    left: 3%;
+    width: 20%;
+    height: 30%;
+
+    background: #173f23;
+
+    border-radius: 30% 45% 30% 40%;
+}
+
+/* Primeval Forest */
+
+.primeval {
+    top: 65%;
+    right: 5%;
+    width: 18%;
+    height: 25%;
+
+    background: #17652b;
+
+    border-radius: 45% 35% 50% 40%;
+}
+
+/* Mammals */
+
+.mammals {
+    bottom: 5%;
+    left: 8%;
+    width: 25%;
+    height: 23%;
+
+    background: #a68d77;
+
+    border-radius: 45% 35% 50% 40%;
+}
+
+/* Glacial */
+
+.glacial {
+    bottom: 4%;
+    left: 3%;
+    width: 17%;
+    height: 20%;
+
+    background: #83aeb7;
+
+    border-radius: 50% 40% 45% 40%;
+}
+
+/* Rex Hex */
+
+.rex {
+    top: 58%;
+    left: 51%;
+    width: 15%;
+    height: 14%;
+
+    background: #56552d;
+
+    border-radius: 25px;
+
+    border: 5px solid #8b8d63;
+}
+
+/* ==============================
+   CENTRAL PLAZA
+============================== */
+
+.central {
+    position: absolute;
+
+    left: 43%;
+    top: 56%;
+
+    width: 17%;
+    height: 17%;
+
+    background: #cfc5a2;
+
+    border: 7px solid #a59b7d;
+    border-radius: 50%;
+
+    z-index: 10;
+
+    box-shadow: 0 8px 20px rgba(0,0,0,.3);
+}
+
+.central-title {
+    position: absolute;
+
+    top: 20%;
+    width: 100%;
+
+    text-align: center;
+
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.fountain {
+    position: absolute;
+
+    width: 65px;
+    height: 65px;
+
+    left: 50%;
+    top: 52%;
+
+    transform: translate(-50%,-50%);
+
+    background: #1986ba;
+
+    border: 6px solid #e5dcc1;
+    border-radius: 50%;
+}
+
+/* ==============================
+   HOTEL
+============================== */
+
+.hotel {
+    position: absolute;
+
+    left: 42%;
+    top: 75%;
+
+    width: 20%;
+    height: 8%;
+
+    background: #dedbd0;
+
+    color: #202725;
+
+    border: 5px solid #8c918a;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 1px;
+
+    text-transform: uppercase;
+
+    z-index: 5;
+}
+
+/* ==============================
+   AIRPORT
+============================== */
+
+.airport {
+    position: absolute;
+
+    bottom: 3%;
+    left: 37%;
+
+    width: 30%;
+    height: 11%;
+
+    background: #aeb1ae;
+
+    border: 5px solid #666b68;
+
+    z-index: 5;
+}
+
+.airport-building {
+    position: absolute;
+
+    width: 30%;
+    height: 65%;
+
+    left: 35%;
+    top: 8%;
+
+    background: #deded8;
+
+    border: 3px solid #727873;
+}
+
+.runway {
+    position: absolute;
+
+    bottom: 8%;
+    left: 5%;
+
+    width: 90%;
+    height: 17%;
+
+    background: #3e403e;
+}
+
+.runway::after {
+    content: "";
+
+    position: absolute;
+
+    top: 45%;
+    left: 5%;
+
+    width: 90%;
+    height: 3px;
+
+    background: #eee9ca;
+}
+
+/* ==============================
+   MAP LABELS
+============================== */
+
+.map-compass {
+    position: absolute;
+
+    top: 30px;
+    right: 30px;
+
+    width: 75px;
+    height: 75px;
+
+    background: rgba(30,40,34,.85);
+
+    border: 2px solid #d8d8ca;
+    border-radius: 50%;
+
+    color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 12px;
+    font-weight: bold;
+
+    z-index: 30;
+}
+
+.map-title {
+    position: absolute;
+
+    top: 30px;
+    left: 30px;
+
+    background: #242927;
+    color: #eee;
+
+    padding: 14px 20px;
+
+    font-size: 12px;
+    letter-spacing: 2px;
+
+    z-index: 30;
+}
+
+/* ==============================
+   LEGEND
+============================== */
+
+.legend-section {
+    background: #343936;
+    color: #e0e1db;
+}
+
+.legend {
+    max-width: 1450px;
+    margin: auto;
+    padding: 70px 45px;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+}
+
+.legend-card {
+    background: #414743;
+    padding: 25px;
+
+    border-left: 4px solid #899189;
+}
+
+.legend-card h3 {
+    font-size: 15px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.legend-card p {
+    margin-top: 10px;
+
+    color: #bfc3bd;
+
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+/* ==============================
+   FOOTER
+============================== */
+
+footer {
+    background: #222524;
+    color: #969b96;
+
+    padding: 55px 45px 25px;
+}
+
+.footer-inner {
+    max-width: 1450px;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+
+    gap: 50px;
+}
+
+footer h3 {
+    margin-bottom: 15px;
+
+    color: #dddeda;
+
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+footer p,
+footer a {
+    color: #929792;
+    font-size: 13px;
+}
+
+footer a {
+    display: block;
+    margin-bottom: 8px;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: white;
+}
+
+.copyright {
+    max-width: 1450px;
+
+    margin: 45px auto 0;
+    padding-top: 20px;
+
+    border-top: 1px solid #404542;
+
+    font-size: 10px;
+
+    color: #656b66;
+}
+
+/* ==============================
+   MOBILE
+============================== */
+
+@media(max-width:900px) {
+
+    nav {
+        display: none;
+    }
+
+    .map {
+        min-height: 700px;
+    }
+
+    .legend {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-inner {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media(max-width:600px) {
+
+    .intro-section {
+        padding: 55px 22px 25px;
+    }
+
+    h1 {
+        font-size: 38px;
+    }
+
+    .map-wrapper {
+        padding: 20px 15px 60px;
+    }
+
+    .map {
+        min-height: 600px;
+        border-width: 6px;
+    }
+
+    .zone span {
+        font-size: 9px;
+        padding: 5px;
+    }
+
+    .footer-inner {
+        grid-template-columns: 1fr;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+<!-- ==============================
+     HEADER
+============================== -->
+
+<header>
+
+<div class="header-inner">
+
+    <div class="brand">
+
+        <div class="logo">🦖</div>
+
+        <div>
+            <div class="brand-name">
+                PREHISTORIC PARK
+            </div>
+
+            <div class="brand-tagline">
+                WHERE THE PAST IS ALIVE
+            </div>
+        </div>
+
+    </div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="index.html#animals">Animals</a>
+        <a href="park-map.html">Park Map</a>
+        <a href="index.html#visit">Visit</a>
+        <a href="index.html#news">News</a>
+        <a href="index.html#about">About</a>
+    </nav>
+
+</div>
+
+</header>
+
+
+<!-- ==============================
+     INTRO
+============================== -->
+
+<section class="intro-section">
+
+    <div class="kicker">
+        Explore the grounds
+    </div>
+
+    <h1>
+        Park Map
+    </h1>
+
+    <p class="intro-text">
+        Explore the habitats, attractions and visitor facilities
+        throughout Prehistoric Park. Select an area to discover
+        more about what awaits you.
+    </p>
+
+</section>
+
+
+<!-- ==============================
+     MAP
+============================== -->
+
+<div class="map-wrapper">
+
+<div class="map">
+
+    <div class="map-title">
+        PREHISTORIC PARK — GROUNDS
+    </div>
+
+    <div class="map-compass">
+        N
+    </div>
+
+
+    <!-- ROADS -->
+
+    <div class="road road-main"></div>
+    <div class="road road-central"></div>
+    <div class="road road-west"></div>
+    <div class="road road-east"></div>
+    <div class="road road-south"></div>
+
+
+    <!-- ATTRACTIONS -->
+
+    <a href="animals/mamenchisaurus.html"
+       class="zone giants"
+       style="text-decoration:none;">
+        <span>GIANTS OF THE VALLEY</span>
+    </a>
+
+
+    <a href="animals/triceratops.html"
+       class="zone herds"
+       style="text-decoration:none;">
+        <span>HUMBLE HERDS</span>
+    </a>
+
+
+    <div class="zone spike">
+        <span>SPIKE HIKE</span>
+    </div>
+
+
+    <div class="zone raptor">
+        <span>RAPTOR RANCH</span>
+    </div>
+
+
+    <div class="zone winged">
+        <span>WINGED HEIGHTS</span>
+    </div>
+
+
+    <div class="zone cave">
+        <span>CAVE OF THE CARNOTAUR</span>
+    </div>
+
+
+    <div class="zone swamps">
+        <span>HUNTERS SWAMPS<br><br>BLACKWATER BOG</span>
+    </div>
+
+
+    <div class="zone primeval">
+        <span>PRIMEVAL FOREST</span>
+    </div>
+
+
+    <div class="zone mammals">
+        <span>AGE OF MAMMALS</span>
+    </div>
+
+
+    <div class="zone glacial">
+        <span>GLACIAL GROTTO</span>
+    </div>
+
+
+    <a href="animals/tyrannosaurus-rex.html"
+       class="zone rex"
+       style="text-decoration:none;">
+        <span>REX HEX</span>
+    </a>
+
+
+    <!-- CENTRAL PLAZA -->
+
+    <div class="central">
+
+        <div class="central-title">
+            CENTRAL PLAZA
+        </div>
+
+        <div class="fountain"></div>
+
+    </div>
+
+
+    <!-- HOTEL -->
+
+    <div class="hotel">
+        GRAND HOTEL
+    </div>
+
+
+    <!-- AIRPORT -->
+
+    <div class="airport">
+
+        <div class="airport-building"></div>
+
+        <div class="runway"></div>
+
+    </div>
+
+</div>
+
+</div>
+
+
+<!-- ==============================
+     LEGEND
+============================== -->
+
+<section class="legend-section">
+
+<div class="legend">
+
+    <div class="legend-card">
+
+        <h3>
+            Visitor Facilities
+        </h3>
+
+        <p>
+            The airport, Central Plaza and Grand Hotel form
+            the main arrival and visitor hub of Prehistoric Park.
+        </p>
+
+    </div>
+
+
+    <div class="legend-card">
+
+        <h3>
+            Animal Habitats
+        </h3>
+
+        <p>
+            Explore dedicated prehistoric environments ranging
+            from enormous sauropod valleys to dangerous predator
+            habitats.
+        </p>
+
+    </div>
+
+
+    <div class="legend-card">
+
+        <h3>
+            Park Trails
+        </h3>
+
+        <p>
+            A network of pathways connects the Central Plaza
+            with the major attractions throughout the park.
+        </p>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- ==============================
+     FOOTER
+============================== -->
+
+<footer>
+
+<div class="footer-inner">
+
+    <div>
+        <h3>Prehistoric Park</h3>
+
+        <p>
+            A world-class prehistoric wildlife conservation
+            and visitor facility.
+        </p>
+
+        <p style="margin-top:12px;">
+            Where the Past comes to you.
+        </p>
+    </div>
+
+
+    <div>
+        <h3>Explore</h3>
+
+        <a href="index.html#animals">Animals</a>
+        <a href="park-map.html">Park Map</a>
+        <a href="index.html#visit">Plan Your Visit</a>
+        <a href="index.html#news">Park News</a>
+    </div>
+
+
+    <div>
+        <h3>Information</h3>
+
+        <a href="index.html#about">About the Park</a>
+        <a href="#">Conservation</a>
+        <a href="#">Research</a>
+        <a href="#">Contact</a>
+    </div>
+
+
+    <div>
+        <h3>Follow Us</h3>
+
+        <a href="#">Facebook</a>
+        <a href="#">Instagram</a>
+        <a href="#">YouTube</a>
+        <a href="#">TikTok</a>
+    </div>
+
+</div>
+
+
+<div class="copyright">
+    © 2026 Prehistoric Park. All rights reserved.
+    &nbsp; | &nbsp; PREHISTORIC PARK CONSERVATION AUTHORITY
+</div>
+
+</footer>
+
+
+</body>
+</html>
