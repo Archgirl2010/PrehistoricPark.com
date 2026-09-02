@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Hunters Swamps | Prehistoric Park</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #e1e0da;
+    color: #303331;
+}
+
+header {
+    background: #292d2b;
+    color: white;
+    padding: 18px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo {
+    font-size: 38px;
+}
+
+.brand {
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.tagline {
+    font-size: 11px;
+    color: #aaa;
+    letter-spacing: 2px;
+}
+
+nav a {
+    color: #ddd;
+    text-decoration: none;
+    margin-left: 25px;
+    font-size: 14px;
+}
+
+nav a:hover {
+    color: white;
+}
+
+.breadcrumb {
+    max-width: 1200px;
+    margin: 25px auto 10px;
+    padding: 0 25px;
+    font-size: 13px;
+    color: #777;
+}
+
+.breadcrumb a {
+    color: #566c5c;
+    text-decoration: none;
+}
+
+.hero {
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: 440px;
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative;
+    background:
+        linear-gradient(rgba(20,30,24,.18), rgba(10,20,16,.86)),
+        url("https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=1800&q=85")
+        center/cover;
+    display: flex;
+    align-items: flex-end;
+}
+
+.hero-content {
+    color: white;
+    padding: 50px;
+    max-width: 800px;
+}
+
+.hero-label {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 13px;
+    margin-bottom: 12px;
+}
+
+.hero h1 {
+    font-size: 58px;
+    margin: 0 0 12px;
+}
+
+.hero p {
+    font-size: 20px;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.content {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 25px;
+}
+
+.quick-facts {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px;
+    margin-bottom: 35px;
+}
+
+.fact {
+    background: white;
+    padding: 22px 15px;
+    border-radius: 5px;
+    text-align: center;
+    border-top: 4px solid #52675c;
+}
+
+.fact strong {
+    display: block;
+    font-size: 19px;
+    margin-bottom: 7px;
+}
+
+.fact span {
+    font-size: 12px;
+    color: #777;
+}
+
+.section {
+    background: white;
+    padding: 35px;
+    margin-bottom: 25px;
+    border-radius: 5px;
+}
+
+.section h2 {
+    margin-top: 0;
+    font-size: 30px;
+    color: #3d4b42;
+}
+
+.section p {
+    line-height: 1.7;
+    color: #555;
+}
+
+.highlight {
+    background: #dce1dc;
+    border-left: 5px solid #52675c;
+    padding: 20px;
+    margin: 25px 0;
+}
+
+.residents {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+}
+
+.resident {
+    border: 1px solid #d8d8d2;
+    padding: 24px;
+    border-radius: 5px;
+    background: #f5f5f1;
+}
+
+.resident h3 {
+    margin: 0 0 5px;
+    color: #3d5044;
+    font-size: 21px;
+}
+
+.group-label {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #7b827d;
+    margin-bottom: 12px;
+}
+
+.resident p {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+.experience-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.experience {
+    background: #eeeee9;
+    padding: 25px;
+    border-radius: 5px;
+}
+
+.experience h3 {
+    margin-top: 0;
+    color: #405047;
+}
+
+.experience p {
+    font-size: 14px;
+}
+
+.warning {
+    background: #e8e5dc;
+    border-left: 5px solid #756b57;
+    padding: 22px;
+    margin-top: 25px;
+}
+
+.warning strong {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.back {
+    text-align: center;
+    margin: 35px 0;
+}
+
+.back a {
+    display: inline-block;
+    background: #48564c;
+    color: white;
+    padding: 14px 25px;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.back a:hover {
+    background: #37433b;
+}
+
+footer {
+    background: #292d2b;
+    color: #aaa;
+    text-align: center;
+    padding: 35px;
+    margin-top: 50px;
+    font-size: 13px;
+}
+
+@media (max-width: 800px) {
+
+    header {
+        padding: 15px 20px;
+    }
+
+    nav {
+        display: none;
+    }
+
+    .hero {
+        min-height: 360px;
+    }
+
+    .hero-content {
+        padding: 30px;
+    }
+
+    .hero h1 {
+        font-size: 42px;
+    }
+
+    .quick-facts {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .residents,
+    .experience-grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo-area">
+
+        <div class="logo">🦖</div>
+
+        <div>
+            <div class="brand">PREHISTORIC PARK</div>
+            <div class="tagline">WHERE THE PAST IS ALIVE</div>
+        </div>
+
+    </div>
+
+    <nav>
+        <a href="../index.html">Home</a>
+        <a href="../park-map.html">Park Map</a>
+        <a href="../index.html#animals">Animals</a>
+        <a href="../index.html#visit">Plan Your Visit</a>
+    </nav>
+
+</header>
+
+<div class="breadcrumb">
+
+    <a href="../index.html">Home</a>
+    &nbsp; / &nbsp;
+
+    <a href="../park-map.html">Park Map</a>
+    &nbsp; / &nbsp;
+
+    Hunters Swamps
+
+</div>
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="hero-label">
+            Aquatic Predator Habitat
+        </div>
+
+        <h1>Hunters Swamps</h1>
+
+        <p>
+            Enter the Blackwater Bog, where the water is dark, the
+            vegetation is dense and something may be waiting beneath
+            the surface.
+        </p>
+
+    </div>
+
+</section>
+
+<main class="content">
+
+    <div class="quick-facts">
+
+        <div class="fact">
+            <strong>South Sector</strong>
+            <span>Park Location</span>
+        </div>
+
+        <div class="fact">
+            <strong>5 Species</strong>
+            <span>Resident Species</span>
+        </div>
+
+        <div class="fact">
+            <strong>Aquatic</strong>
+            <span>Predator Habitat</span>
+        </div>
+
+        <div class="fact">
+            <strong>Blackwater</strong>
+            <span>Swamp Environment</span>
+        </div>
+
+        <div class="fact">
+            <strong>Boardwalk</strong>
+            <span>Primary Viewing</span>
+        </div>
+
+    </div>
+
+    <section class="section">
+
+        <h2>Welcome to Blackwater Bog</h2>
+
+        <p>
+            Hunters Swamps is one of the most unusual habitats in
+            Prehistoric Park. A network of deep pools, slow-moving
+            channels, mud banks and dense prehistoric vegetation creates
+            an environment designed for animals that spend much of their
+            lives in or around water.
+        </p>
+
+        <p>
+            The main visitor route is an elevated boardwalk that crosses
+            several sections of the swamp. Viewing platforms provide
+            sightlines across the water while keeping guests well above
+            the habitat.
+        </p>
+
+        <div class="highlight">
+
+            <strong>Watch the Water</strong><br>
+
+            Not everything in Hunters Swamps is visible at first glance.
+            Some residents spend long periods partially submerged or
+            hidden among the vegetation.
+
+        </div>
+
+        <p>
+            The swamp is deliberately maintained as a complex,
+            naturalistic environment rather than a simple pool.
+            Shallow wetlands, deep water and dry islands allow the
+            different species to occupy separate areas of the habitat.
+        </p>
+
+    </section>
+
+    <section class="section">
+
+        <h2>The Residents</h2>
+
+        <div class="residents">
+
+            <div class="resident">
+
+                <h3>Sarcosuchus</h3>
+
+                <div class="group-label">
+                    Giant Crocodyliform
+                </div>
+
+                <p>
+                    One of the largest crocodile-like predators in the
+                    park. Sarcosuchus spends much of its time close to
+                    the water and can remain remarkably still for long
+                    periods.
+                </p>
+
+            </div>
+
+            <div class="resident">
+
+                <h3>Kaprosuchus</h3>
+
+                <div class="group-label">
+                    Crocodyliform
+                </div>
+
+                <p>
+                    Known for its prominent teeth and unusual skull,
+                    Kaprosuchus is primarily observed around the muddy
+                    margins and shallow sections of the habitat.
+                </p>
+
+            </div>
+
+            <div class="resident">
+
+                <h3>Purussaurus</h3>
+
+                <div class="group-label">
+                    Giant Caiman
+                </div>
+
+                <p>
+                    An enormous prehistoric caiman capable of delivering
+                    an exceptionally powerful bite. Deep water provides
+                    the ideal environment for this massive predator.
+                </p>
+
+            </div>
+
+            <div class="resident">
+
+                <h3>Stomatosuchus</h3>
+
+                <div class="group-label">
+                    Crocodyliform
+                </div>
+
+                <p>
+                    A specialised ancient crocodile relative with a
+                    distinctive broad skull. It occupies the quieter
+                    waterways of the swamp.
+                </p>
+
+            </div>
+
+            <div class="resident">
+
+                <h3>Carnufex</h3>
+
+                <div class="group-label">
+                    Terrestrial Predator
+                </div>
+
+                <p>
+                    Unlike the aquatic hunters, Carnufex spends most of
+                    its time on land. It occupies the raised forested
+                    islands and perimeter areas of the habitat.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="section">
+
+        <h2>The Blackwater Bog Experience</h2>
+
+        <div class="experience-grid">
+
+            <div class="experience">
+
+                <h3>🌿 Swamp Boardwalk</h3>
+
+                <p>
+                    Follow the elevated timber boardwalk through dense
+                    vegetation and across the main waterways.
+                </p>
+
+            </div>
+
+            <div class="experience">
+
+                <h3>🐊 Predator Pools</h3>
+
+                <p>
+                    Protected viewing platforms overlook several deep
+                    pools where the largest aquatic predators spend much
+                    of their time.
+                </p>
+
+            </div>
+
+            <div class="experience">
+
+                <h3>🌫 Blackwater Lookout</h3>
+
+                <p>
+                    A raised observation point provides a broad view
+                    across the central swamp and its surrounding forest.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="warning">
+
+            <strong>Visitor Safety</strong>
+
+            The waterways contain large aquatic predators.
+            Visitors must remain on designated boardwalks and viewing
+            platforms. Do not lean over barriers, throw objects into
+            the water or attempt to feed the animals.
+
+        </div>
+
+    </section>
+
+    <div class="back">
+
+        <a href="../park-map.html">
+            ← Return to Park Map
+        </a>
+
+    </div>
+
+</main>
+
+<footer>
+
+    <div>PREHISTORIC PARK</div>
+
+    <div style="margin-top:8px;">
+        Where the past is alive.
+    </div>
+
+</footer>
+
+</body>
+</html>
