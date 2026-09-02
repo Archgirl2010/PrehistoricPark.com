@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Giants of the Valley | Prehistoric Park</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #e7e5df;
+    color: #303331;
+}
+
+header {
+    background: #292d2b;
+    color: white;
+    padding: 18px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo {
+    font-size: 38px;
+}
+
+.brand {
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.tagline {
+    font-size: 11px;
+    color: #aaa;
+    letter-spacing: 2px;
+}
+
+nav a {
+    color: #ddd;
+    text-decoration: none;
+    margin-left: 25px;
+    font-size: 14px;
+}
+
+nav a:hover {
+    color: white;
+}
+
+.breadcrumb {
+    max-width: 1200px;
+    margin: 25px auto 10px;
+    padding: 0 25px;
+    font-size: 13px;
+    color: #777;
+}
+
+.breadcrumb a {
+    color: #566c5c;
+    text-decoration: none;
+}
+
+.hero {
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: 420px;
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative;
+    background:
+        linear-gradient(rgba(20,35,25,.25), rgba(20,35,25,.75)),
+        url("https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1800&q=85")
+        center/cover;
+    display: flex;
+    align-items: flex-end;
+}
+
+.hero-content {
+    color: white;
+    padding: 50px;
+    max-width: 750px;
+}
+
+.hero-label {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 13px;
+    margin-bottom: 12px;
+    opacity: .9;
+}
+
+.hero h1 {
+    font-size: 58px;
+    margin: 0 0 12px;
+}
+
+.hero p {
+    font-size: 20px;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.content {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 25px;
+}
+
+.quick-facts {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px;
+    margin-bottom: 35px;
+}
+
+.fact {
+    background: white;
+    padding: 22px 15px;
+    border-radius: 5px;
+    text-align: center;
+    border-top: 4px solid #6c7c68;
+}
+
+.fact strong {
+    display: block;
+    font-size: 19px;
+    margin-bottom: 7px;
+}
+
+.fact span {
+    font-size: 12px;
+    color: #777;
+}
+
+.section {
+    background: white;
+    padding: 35px;
+    margin-bottom: 25px;
+    border-radius: 5px;
+}
+
+.section h2 {
+    margin-top: 0;
+    font-size: 30px;
+    color: #3e4c42;
+}
+
+.section p {
+    line-height: 1.7;
+    color: #555;
+}
+
+.highlight {
+    background: #dfe4dc;
+    border-left: 5px solid #697b68;
+    padding: 20px;
+    margin: 25px 0;
+}
+
+.residents {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+}
+
+.resident {
+    border: 1px solid #ddd;
+    padding: 22px;
+    border-radius: 5px;
+    background: #f7f6f2;
+}
+
+.resident h3 {
+    margin: 0 0 5px;
+    color: #3f5044;
+    font-size: 20px;
+}
+
+.scientific {
+    font-style: italic;
+    color: #777;
+    font-size: 13px;
+    margin-bottom: 12px;
+}
+
+.resident p {
+    margin-bottom: 0;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.experience-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.experience {
+    background: #f0efeb;
+    padding: 25px;
+    border-radius: 5px;
+}
+
+.experience h3 {
+    margin-top: 0;
+    color: #435247;
+}
+
+.experience p {
+    font-size: 14px;
+}
+
+.notice {
+    background: #ece9df;
+    border-left: 5px solid #8a8064;
+    padding: 20px;
+    margin-top: 25px;
+}
+
+.notice strong {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.back {
+    text-align: center;
+    margin: 35px 0;
+}
+
+.back a {
+    display: inline-block;
+    background: #48564c;
+    color: white;
+    padding: 14px 25px;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.back a:hover {
+    background: #37433b;
+}
+
+footer {
+    background: #292d2b;
+    color: #aaa;
+    text-align: center;
+    padding: 35px;
+    margin-top: 50px;
+    font-size: 13px;
+}
+
+@media (max-width: 800px) {
+
+    header {
+        padding: 15px 20px;
+    }
+
+    nav {
+        display: none;
+    }
+
+    .hero {
+        min-height: 360px;
+    }
+
+    .hero-content {
+        padding: 30px;
+    }
+
+    .hero h1 {
+        font-size: 42px;
+    }
+
+    .quick-facts {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .residents,
+    .experience-grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo-area">
+        <div class="logo">🦖</div>
+        <div>
+            <div class="brand">PREHISTORIC PARK</div>
+            <div class="tagline">WHERE THE PAST IS ALIVE</div>
+        </div>
+    </div>
+
+    <nav>
+        <a href="../index.html">Home</a>
+        <a href="../park-map.html">Park Map</a>
+        <a href="../index.html#animals">Animals</a>
+        <a href="../index.html#visit">Plan Your Visit</a>
+    </nav>
+
+</header>
+
+<div class="breadcrumb">
+    <a href="../index.html">Home</a>
+    &nbsp; / &nbsp;
+    <a href="../park-map.html">Park Map</a>
+    &nbsp; / &nbsp;
+    Giants of the Valley
+</div>
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="hero-label">The Giants of Prehistoric Park</div>
+
+        <h1>Giants of the Valley</h1>
+
+        <p>
+            Enter a landscape built for the largest animals ever to walk the Earth.
+            Follow the river through the valley and look up — way up.
+        </p>
+
+    </div>
+
+</section>
+
+<main class="content">
+
+    <div class="quick-facts">
+
+        <div class="fact">
+            <strong>North-East</strong>
+            <span>Park Sector</span>
+        </div>
+
+        <div class="fact">
+            <strong>7 Species</strong>
+            <span>Resident Species</span>
+        </div>
+
+        <div class="fact">
+            <strong>Valley</strong>
+            <span>Forest & Grassland</span>
+        </div>
+
+        <div class="fact">
+            <strong>River Ride</strong>
+            <span>Primary Viewing</span>
+        </div>
+
+        <div class="fact">
+            <strong>★★★★★</strong>
+            <span>Guest Favourite</span>
+        </div>
+
+    </div>
+
+    <section class="section">
+
+        <h2>A Valley Built for Giants</h2>
+
+        <p>
+            Giants of the Valley is the largest habitat complex in Prehistoric Park.
+            A broad prehistoric valley of woodland, open grassland and rocky terrain
+            provides room for some of the largest animals in the collection to move
+            freely.
+        </p>
+
+        <p>
+            Unlike most areas of the park, the valley is not surrounded by conventional
+            perimeter fencing. Instead, the habitat is enclosed by steep natural rock
+            formations and carefully engineered barriers integrated into the landscape.
+        </p>
+
+        <div class="highlight">
+            <strong>The River Ride</strong><br>
+            The best way to experience Giants of the Valley is from the water.
+            The park's river route travels deep into the habitat, providing visitors
+            with multiple viewing opportunities while keeping a safe distance from
+            the animals.
+        </div>
+
+        <p>
+            Guests may encounter animals at the water's edge, moving between forest
+            clearings or crossing the valley itself. Sightings vary depending on
+            animal movement and conditions, making every journey different.
+        </p>
+
+    </section>
+
+    <section class="section">
+
+        <h2>Residents</h2>
+
+        <div class="residents">
+
+            <div class="resident">
+                <h3>Mamenchisaurus</h3>
+                <div class="scientific">Mamenchisaurus</div>
+                <p>
+                    One of the longest-necked dinosaurs known. Its enormous reach
+                    allows it to browse vegetation high above the valley floor.
+                </p>
+            </div>
+
+            <div class="resident">
+                <h3>Amargasaurus</h3>
+                <div class="scientific">Amargasaurus cazaui</div>
+                <p>
+                    A distinctive sauropod recognised by the tall spines running
+                    along its neck and back.
+                </p>
+            </div>
+
+            <div class="resident">
+                <h3>Patagotitan</h3>
+                <div class="scientific">Patagotitan mayorum</div>
+                <p>
+                    One of the largest dinosaurs represented at Prehistoric Park.
+                    Adults require an enormous amount of space and vegetation.
+                </p>
+            </div>
+
+            <div class="resident">
+                <h3>Giraffatitan</h3>
+                <div class="scientific">Giraffatitan brancai</div>
+                <p>
+                    A towering sauropod whose elevated browsing height makes it
+                    particularly impressive when viewed from the river.
+                </p>
+            </div>
+
+            <div class="resident">
+                <h3>Argentinosaurus</h3>
+                <div class="scientific">Argentinosaurus huinculensis</div>
+                <p>
+                    One of the heaviest dinosaurs known. Sightings of this enormous
+                    animal are among the most memorable experiences in the valley.
+                </p>
+            </div>
+
+            <div class="resident">
+                <h3>Apatosaurus</h3>
+                <div class="scientific">Apatosaurus</div>
+                <p>
+                    A heavily built sauropod with a long tail and neck, often seen
+                    moving slowly through the lower woodland.
+                </p>
+            </div>
+
+            <div class="resident">
+                <h3>Nigersaurus</h3>
+                <div class="scientific">Nigersaurus taqueti</div>
+                <p>
+                    A smaller, specialised sauropod with an unusual wide muzzle
+                    adapted for feeding close to the ground.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="section">
+
+        <h2>The Valley Experience</h2>
+
+        <div class="experience-grid">
+
+            <div class="experience">
+                <h3>🚤 River Journey</h3>
+                <p>
+                    Travel deep into the habitat aboard the park's river vessels.
+                    The route provides views unavailable from the main guest paths.
+                </p>
+            </div>
+
+            <div class="experience">
+                <h3>🌲 Valley Lookouts</h3>
+                <p>
+                    Elevated viewing points overlook sections of the valley and
+                    provide long-distance views across the habitat.
+                </p>
+            </div>
+
+            <div class="experience">
+                <h3>🦕 Giant Sightings</h3>
+                <p>
+                    Watch the animals interact naturally as they move between
+                    feeding grounds, woodland and the river.
+                </p>
+            </div>
+
+        </div>
+
+        <div class="notice">
+
+            <strong>Visitor Information</strong>
+
+            The Giants of the Valley is a remote habitat.
+            Allow additional time to reach the river boarding area.
+            Children must remain with an adult and all visitors must remain
+            within designated viewing areas.
+
+        </div>
+
+    </section>
+
+    <div class="back">
+        <a href="../park-map.html">← Return to Park Map</a>
+    </div>
+
+</main>
+
+<footer>
+
+    <div>PREHISTORIC PARK</div>
+    <div style="margin-top:8px;">
+        Where the past is alive.
+    </div>
+
+</footer>
+
+</body>
+</html>
