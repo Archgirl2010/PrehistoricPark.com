@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Spike Hike | Prehistoric Park</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #e7e5df;
+    color: #303331;
+}
+
+header {
+    background: #292d2b;
+    color: white;
+    padding: 18px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo {
+    font-size: 38px;
+}
+
+.brand {
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.tagline {
+    font-size: 11px;
+    color: #aaa;
+    letter-spacing: 2px;
+}
+
+nav a {
+    color: #ddd;
+    text-decoration: none;
+    margin-left: 25px;
+    font-size: 14px;
+}
+
+nav a:hover {
+    color: white;
+}
+
+.breadcrumb {
+    max-width: 1200px;
+    margin: 25px auto 10px;
+    padding: 0 25px;
+    font-size: 13px;
+    color: #777;
+}
+
+.breadcrumb a {
+    color: #566c5c;
+    text-decoration: none;
+}
+
+.hero {
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: 430px;
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative;
+    background:
+        linear-gradient(rgba(35,45,30,.15), rgba(25,35,25,.78)),
+        url("https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1800&q=85")
+        center/cover;
+    display: flex;
+    align-items: flex-end;
+}
+
+.hero-content {
+    color: white;
+    padding: 50px;
+    max-width: 780px;
+}
+
+.hero-label {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 13px;
+    margin-bottom: 12px;
+}
+
+.hero h1 {
+    font-size: 58px;
+    margin: 0 0 12px;
+}
+
+.hero p {
+    font-size: 20px;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.content {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 25px;
+}
+
+.quick-facts {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px;
+    margin-bottom: 35px;
+}
+
+.fact {
+    background: white;
+    padding: 22px 15px;
+    border-radius: 5px;
+    text-align: center;
+    border-top: 4px solid #687661;
+}
+
+.fact strong {
+    display: block;
+    font-size: 19px;
+    margin-bottom: 7px;
+}
+
+.fact span {
+    font-size: 12px;
+    color: #777;
+}
+
+.section {
+    background: white;
+    padding: 35px;
+    margin-bottom: 25px;
+    border-radius: 5px;
+}
+
+.section h2 {
+    margin-top: 0;
+    font-size: 30px;
+    color: #3e4c42;
+}
+
+.section p {
+    line-height: 1.7;
+    color: #555;
+}
+
+.highlight {
+    background: #dfe4d8;
+    border-left: 5px solid #687661;
+    padding: 20px;
+    margin: 25px 0;
+}
+
+.residents {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+}
+
+.resident {
+    border: 1px solid #ddd;
+    padding: 24px;
+    border-radius: 5px;
+    background: #f7f6f2;
+}
+
+.resident h3 {
+    margin: 0 0 5px;
+    color: #3f5044;
+    font-size: 21px;
+}
+
+.group-label {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #85877f;
+    margin-bottom: 12px;
+}
+
+.resident p {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+.experience-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.experience {
+    background: #f0efeb;
+    padding: 25px;
+    border-radius: 5px;
+}
+
+.experience h3 {
+    margin-top: 0;
+    color: #435247;
+}
+
+.experience p {
+    font-size: 14px;
+}
+
+.notice {
+    background: #ece9df;
+    border-left: 5px solid #82775f;
+    padding: 20px;
+    margin-top: 25px;
+}
+
+.notice strong {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.back {
+    text-align: center;
+    margin: 35px 0;
+}
+
+.back a {
+    display: inline-block;
+    background: #48564c;
+    color: white;
+    padding: 14px 25px;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.back a:hover {
+    background: #37433b;
+}
+
+footer {
+    background: #292d2b;
+    color: #aaa;
+    text-align: center;
+    padding: 35px;
+    margin-top: 50px;
+    font-size: 13px;
+}
+
+@media (max-width: 800px) {
+
+    header {
+        padding: 15px 20px;
+    }
+
+    nav {
+        display: none;
+    }
+
+    .hero {
+        min-height: 360px;
+    }
+
+    .hero-content {
+        padding: 30px;
+    }
+
+    .hero h1 {
+        font-size: 42px;
+    }
+
+    .quick-facts {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .residents,
+    .experience-grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo-area">
+
+        <div class="logo">🦖</div>
+
+        <div>
+            <div class="brand">PREHISTORIC PARK</div>
+            <div class="tagline">WHERE THE PAST IS ALIVE</div>
+        </div>
+
+    </div>
+
+    <nav>
+        <a href="../index.html">Home</a>
+        <a href="../park-map.html">Park Map</a>
+        <a href="../index.html#animals">Animals</a>
+        <a href="../index.html#visit">Plan Your Visit</a>
+    </nav>
+
+</header>
+
+<div class="breadcrumb">
+
+    <a href="../index.html">Home</a>
+    &nbsp; / &nbsp;
+
+    <a href="../park-map.html">Park Map</a>
+    &nbsp; / &nbsp;
+
+    Spike Hike
+
+</div>
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="hero-label">
+            Armoured Dinosaur Trail
+        </div>
+
+        <h1>Spike Hike</h1>
+
+        <p>
+            Follow the trail through ancient woodland and discover some
+            of the most heavily armoured dinosaurs in Prehistoric Park.
+        </p>
+
+    </div>
+
+</section>
+
+<main class="content">
+
+    <div class="quick-facts">
+
+        <div class="fact">
+            <strong>South-East</strong>
+            <span>Park Sector</span>
+        </div>
+
+        <div class="fact">
+            <strong>6 Species</strong>
+            <span>Resident Species</span>
+        </div>
+
+        <div class="fact">
+            <strong>Armoured</strong>
+            <span>Heavy Protection</span>
+        </div>
+
+        <div class="fact">
+            <strong>Woodland</strong>
+            <span>Forest & Ferns</span>
+        </div>
+
+        <div class="fact">
+            <strong>Walking Trail</strong>
+            <span>Primary Experience</span>
+        </div>
+
+    </div>
+
+    <section class="section">
+
+        <h2>Walk Among the Armour</h2>
+
+        <p>
+            Spike Hike is a woodland and grassland habitat located beside
+            Humble Herds. The landscape is dominated by ferns, cycads,
+            low vegetation and mature trees, providing shade and shelter
+            for the animals.
+        </p>
+
+        <p>
+            The habitat has been designed around the behaviour of armoured
+            herbivores. Stegosaurs occupy the more open areas while the
+            ankylosaurs spend much of their time among the lower vegetation
+            and woodland margins.
+        </p>
+
+        <div class="highlight">
+
+            <strong>Built to Withstand Them</strong><br>
+
+            The perimeter protection around Spike Hike is considerably
+            stronger than the fencing used for the park's smaller
+            herbivore habitats. Large animals with defensive tails,
+            horns and armour require additional separation from visitors.
+
+        </div>
+
+        <p>
+            A quiet walking trail follows the outside of the habitat.
+            Viewing areas have been positioned at several points along
+            the route, allowing visitors to observe the animals without
+            disturbing them.
+        </p>
+
+    </section>
+
+    <section class="section">
+
+        <h2>Residents</h2>
+
+        <div class="residents">
+
+            <div class="resident">
+
+                <h3>Stegosaurus</h3>
+
+                <div class="group-label">
+                    Stegosaur
+                </div>
+
+                <p>
+                    Easily recognised by its large back plates and
+                    powerful spiked tail. Stegosaurus is one of the
+                    most popular animals along the Spike Hike trail.
+                </p>
+
+            </div>
+
+            <div class="resident">
+
+                <h3>Chungkingosaurus</h3>
+
+                <div class="group-label">
+                    Stegosaur
+                </div>
+
+                <p>
+                    A smaller Chinese stegosaur with paired plates and
+                    tail spikes. It is frequently seen browsing close
+                    to the woodland edge.
+                </p>
+
+            </div>
+
+            <div class="resident">
+
+                <h3>Wuerhosaurus</h3>
+
+                <div class="group-label">
+                    Stegosaur
+                </div>
+
+                <p>
+                    A broad-bodied stegosaur adapted to feeding close
+                    to the ground. Its relatively low profile makes it
+                    particularly interesting to observe from the trail.
+                </p>
+
+            </div>
+
+            <div class="resident">
+
+                <h3>Ankylosaurus</h3>
+
+                <div class="group-label">
+                    Ankylosaur
+                </div>
+
+                <p>
+                    A heavily armoured dinosaur equipped with a powerful
+                    tail club. Ankylosaurus tends to remain close to
+                    dense vegetation and shaded areas.
+                </p>
+
+            </div>
+
+            <div class="resident">
+
+                <h3>Stegouros</h3>
+
+                <div class="group-label">
+                    Ankylosaur
+                </div>
+
+                <p>
+                    A smaller armoured dinosaur with a distinctive
+                    flattened tail structure. It occupies the lower
+                    woodland areas of the habitat.
+                </p>
+
+            </div>
+
+            <div class="resident">
+
+                <h3>Hylaeosaurus</h3>
+
+                <div class="group-label">
+                    Armoured Dinosaur
+                </div>
+
+                <p>
+                    An early armoured dinosaur that uses the dense
+                    vegetation and woodland areas for cover.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="section">
+
+        <h2>The Spike Hike Experience</h2>
+
+        <div class="experience-grid">
+
+            <div class="experience">
+
+                <h3>🌿 Woodland Trail</h3>
+
+                <p>
+                    Follow the winding guest path through a landscape
+                    filled with ferns, cycads and prehistoric vegetation.
+                </p>
+
+            </div>
+
+            <div class="experience">
+
+                <h3>🦴 Armour Lookouts</h3>
+
+                <p>
+                    Protected viewing areas provide close views of the
+                    animals while maintaining a safe distance.
+                </p>
+
+            </div>
+
+            <div class="experience">
+
+                <h3>🌳 Quiet Habitat</h3>
+
+                <p>
+                    This section of the park is deliberately quieter,
+                    allowing visitors to observe animals at their own pace.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="notice">
+
+            <strong>Visitor Safety</strong>
+
+            Spike Hike contains heavily armoured animals with powerful
+            tails and defensive structures. Visitors must remain behind
+            designated barriers and on marked paths. Do not attempt to
+            touch, feed or attract the animals.
+
+        </div>
+
+    </section>
+
+    <div class="back">
+
+        <a href="../park-map.html">
+            ← Return to Park Map
+        </a>
+
+    </div>
+
+</main>
+
+<footer>
+
+    <div>PREHISTORIC PARK</div>
+
+    <div style="margin-top:8px;">
+        Where the past is alive.
+    </div>
+
+</footer>
+
+</body>
+</html>
