@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Humble Herds | Prehistoric Park</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #e7e5df;
+    color: #303331;
+}
+
+header {
+    background: #292d2b;
+    color: white;
+    padding: 18px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo {
+    font-size: 38px;
+}
+
+.brand {
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.tagline {
+    font-size: 11px;
+    color: #aaa;
+    letter-spacing: 2px;
+}
+
+nav a {
+    color: #ddd;
+    text-decoration: none;
+    margin-left: 25px;
+    font-size: 14px;
+}
+
+nav a:hover {
+    color: white;
+}
+
+.breadcrumb {
+    max-width: 1200px;
+    margin: 25px auto 10px;
+    padding: 0 25px;
+    font-size: 13px;
+    color: #777;
+}
+
+.breadcrumb a {
+    color: #566c5c;
+    text-decoration: none;
+}
+
+.hero {
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: 430px;
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative;
+    background:
+        linear-gradient(rgba(45,55,35,.18), rgba(30,40,28,.78)),
+        url("https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1800&q=85")
+        center/cover;
+    display: flex;
+    align-items: flex-end;
+}
+
+.hero-content {
+    color: white;
+    padding: 50px;
+    max-width: 780px;
+}
+
+.hero-label {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 13px;
+    margin-bottom: 12px;
+}
+
+.hero h1 {
+    font-size: 58px;
+    margin: 0 0 12px;
+}
+
+.hero p {
+    font-size: 20px;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.content {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 25px;
+}
+
+.quick-facts {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px;
+    margin-bottom: 35px;
+}
+
+.fact {
+    background: white;
+    padding: 22px 15px;
+    border-radius: 5px;
+    text-align: center;
+    border-top: 4px solid #718064;
+}
+
+.fact strong {
+    display: block;
+    font-size: 19px;
+    margin-bottom: 7px;
+}
+
+.fact span {
+    font-size: 12px;
+    color: #777;
+}
+
+.section {
+    background: white;
+    padding: 35px;
+    margin-bottom: 25px;
+    border-radius: 5px;
+}
+
+.section h2 {
+    margin-top: 0;
+    font-size: 30px;
+    color: #3e4c42;
+}
+
+.section p {
+    line-height: 1.7;
+    color: #555;
+}
+
+.highlight {
+    background: #dfe4d8;
+    border-left: 5px solid #718064;
+    padding: 20px;
+    margin: 25px 0;
+}
+
+.groups {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+}
+
+.group {
+    border: 1px solid #ddd;
+    padding: 24px;
+    border-radius: 5px;
+    background: #f7f6f2;
+}
+
+.group h3 {
+    margin: 0 0 8px;
+    color: #3f5044;
+    font-size: 21px;
+}
+
+.group-label {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #85877f;
+    margin-bottom: 12px;
+}
+
+.group p {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+.species-list {
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px solid #ddd;
+    font-size: 13px;
+    line-height: 1.8;
+    color: #555;
+}
+
+.experience-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.experience {
+    background: #f0efeb;
+    padding: 25px;
+    border-radius: 5px;
+}
+
+.experience h3 {
+    margin-top: 0;
+    color: #435247;
+}
+
+.experience p {
+    font-size: 14px;
+}
+
+.notice {
+    background: #ece9df;
+    border-left: 5px solid #8a8064;
+    padding: 20px;
+    margin-top: 25px;
+}
+
+.notice strong {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.back {
+    text-align: center;
+    margin: 35px 0;
+}
+
+.back a {
+    display: inline-block;
+    background: #48564c;
+    color: white;
+    padding: 14px 25px;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.back a:hover {
+    background: #37433b;
+}
+
+footer {
+    background: #292d2b;
+    color: #aaa;
+    text-align: center;
+    padding: 35px;
+    margin-top: 50px;
+    font-size: 13px;
+}
+
+@media (max-width: 800px) {
+
+    header {
+        padding: 15px 20px;
+    }
+
+    nav {
+        display: none;
+    }
+
+    .hero {
+        min-height: 360px;
+    }
+
+    .hero-content {
+        padding: 30px;
+    }
+
+    .hero h1 {
+        font-size: 42px;
+    }
+
+    .quick-facts {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .groups,
+    .experience-grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo-area">
+
+        <div class="logo">🦖</div>
+
+        <div>
+            <div class="brand">PREHISTORIC PARK</div>
+            <div class="tagline">WHERE THE PAST IS ALIVE</div>
+        </div>
+
+    </div>
+
+    <nav>
+        <a href="../index.html">Home</a>
+        <a href="../park-map.html">Park Map</a>
+        <a href="../index.html#animals">Animals</a>
+        <a href="../index.html#visit">Plan Your Visit</a>
+    </nav>
+
+</header>
+
+<div class="breadcrumb">
+
+    <a href="../index.html">Home</a>
+    &nbsp; / &nbsp;
+
+    <a href="../park-map.html">Park Map</a>
+    &nbsp; / &nbsp;
+
+    Humble Herds
+
+</div>
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="hero-label">
+            Mixed Herbivore Habitat
+        </div>
+
+        <h1>Humble Herds</h1>
+
+        <p>
+            Step into the grasslands and meet some of the park's largest
+            and most social herbivores, from enormous hadrosaurs to
+            armoured ceratopsians.
+        </p>
+
+    </div>
+
+</section>
+
+<main class="content">
+
+    <div class="quick-facts">
+
+        <div class="fact">
+            <strong>South-East</strong>
+            <span>Park Sector</span>
+        </div>
+
+        <div class="fact">
+            <strong>12 Species</strong>
+            <span>Resident Species</span>
+        </div>
+
+        <div class="fact">
+            <strong>Mixed Herds</strong>
+            <span>Multiple Groups</span>
+        </div>
+
+        <div class="fact">
+            <strong>Grassland</strong>
+            <span>Forest & Plains</span>
+        </div>
+
+        <div class="fact">
+            <strong>Family</strong>
+            <span>Popular Attraction</span>
+        </div>
+
+    </div>
+
+    <section class="section">
+
+        <h2>Where the Herds Gather</h2>
+
+        <p>
+            Humble Herds is a large mixed herbivore habitat located in the
+            south-eastern section of Prehistoric Park. Open grasslands
+            merge with patches of woodland, shallow streams and sheltered
+            areas where the animals can retreat from view.
+        </p>
+
+        <p>
+            The habitat has been designed around natural herd behaviour.
+            Different species share the wider landscape while dedicated
+            sections provide feeding, veterinary and separation areas when
+            required.
+        </p>
+
+        <div class="highlight">
+
+            <strong>Watch the Herds</strong><br>
+
+            The animals are not placed on display individually.
+            Visitors may see several species moving through the habitat
+            together, creating one of the most active environments in
+            the park.
+
+        </div>
+
+        <p>
+            A series of guest paths and elevated viewing platforms follow
+            the perimeter of the habitat. Large electrified perimeter
+            fencing provides separation between visitors and the animals
+            while allowing wide views across the enclosure.
+        </p>
+
+    </section>
+
+    <section class="section">
+
+        <h2>The Residents</h2>
+
+        <div class="groups">
+
+            <div class="group">
+
+                <h3>Hadrosaur Herd</h3>
+
+                <div class="group-label">
+                    Duck-billed Dinosaurs
+                </div>
+
+                <p>
+                    Large social herbivores dominate much of the open
+                    grassland. Their size and herd behaviour make them
+                    some of the most frequently observed animals in the
+                    habitat.
+                </p>
+
+                <div class="species-list">
+                    <strong>Shantungosaurus</strong><br>
+                    <strong>Olorotitan</strong><br>
+                    <strong>Parasaurolophus</strong><br>
+                    <strong>Maiasaura</strong>
+                </div>
+
+            </div>
+
+            <div class="group">
+
+                <h3>Ceratopsian Herd</h3>
+
+                <div class="group-label">
+                    Horned Dinosaurs
+                </div>
+
+                <p>
+                    Heavily built horned dinosaurs occupy the woodland
+                    margins and open feeding areas, where visitors can
+                    often see them moving in small groups.
+                </p>
+
+                <div class="species-list">
+                    <strong>Triceratops</strong><br>
+                    <strong>Styracosaurus</strong><br>
+                    <strong>Chasmosaurus</strong>
+                </div>
+
+            </div>
+
+            <div class="group">
+
+                <h3>Pachycephalosaur Group</h3>
+
+                <div class="group-label">
+                    Dome-headed Dinosaurs
+                </div>
+
+                <p>
+                    Smaller herbivores occupy the woodland and scrub
+                    areas of the habitat. Their behaviour is often easier
+                    to observe from the elevated viewing platforms.
+                </p>
+
+                <div class="species-list">
+                    <strong>Pachycephalosaurus</strong><br>
+                    <strong>Homalocephale</strong>
+                </div>
+
+            </div>
+
+            <div class="group">
+
+                <h3>Ornithomimid Group</h3>
+
+                <div class="group-label">
+                    Ostrich-mimic Dinosaurs
+                </div>
+
+                <p>
+                    Fast-moving omnivorous dinosaurs inhabit the open
+                    edges of the enclosure and can often be seen moving
+                    rapidly between feeding areas.
+                </p>
+
+                <div class="species-list">
+                    <strong>Gallimimus</strong><br>
+                    <strong>Struthiomimus</strong><br>
+                    <strong>Ornithomimus</strong>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="section">
+
+        <h2>The Humble Herds Experience</h2>
+
+        <div class="experience-grid">
+
+            <div class="experience">
+
+                <h3>🌾 Open Grasslands</h3>
+
+                <p>
+                    Wide viewing areas overlook the main feeding grounds,
+                    providing visitors with long-distance views across
+                    the mixed herds.
+                </p>
+
+            </div>
+
+            <div class="experience">
+
+                <h3>🌳 Woodland Walk</h3>
+
+                <p>
+                    Follow the perimeter trail through shaded woodland
+                    and discover smaller species moving through the
+                    vegetation.
+                </p>
+
+            </div>
+
+            <div class="experience">
+
+                <h3>🔭 Herd Lookout</h3>
+
+                <p>
+                    Elevated platforms provide a higher viewpoint across
+                    the habitat and are particularly useful when animals
+                    are gathered farther from the main path.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="notice">
+
+            <strong>Visitor Safety</strong>
+
+            Humble Herds contains large free-moving animals.
+            Visitors must remain behind designated barriers and should
+            never attempt to feed, touch or attract the animals.
+            Please remain on marked paths at all times.
+
+        </div>
+
+    </section>
+
+    <div class="back">
+
+        <a href="../park-map.html">
+            ← Return to Park Map
+        </a>
+
+    </div>
+
+</main>
+
+<footer>
+
+    <div>PREHISTORIC PARK</div>
+
+    <div style="margin-top:8px;">
+        Where the past is alive.
+    </div>
+
+</footer>
+
+</body>
+</html>
