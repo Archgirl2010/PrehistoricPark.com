@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Cave of the Carnotaur | Prehistoric Park</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #e4e1dc;
+    color: #30312f;
+}
+
+header {
+    background: #292b2a;
+    color: white;
+    padding: 18px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo {
+    font-size: 38px;
+}
+
+.brand {
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.tagline {
+    font-size: 11px;
+    color: #aaa;
+    letter-spacing: 2px;
+}
+
+nav a {
+    color: #ddd;
+    text-decoration: none;
+    margin-left: 25px;
+    font-size: 14px;
+}
+
+nav a:hover {
+    color: white;
+}
+
+.breadcrumb {
+    max-width: 1200px;
+    margin: 25px auto 10px;
+    padding: 0 25px;
+    font-size: 13px;
+    color: #777;
+}
+
+.breadcrumb a {
+    color: #56665b;
+    text-decoration: none;
+}
+
+.hero {
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: 440px;
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative;
+    background:
+        linear-gradient(rgba(10,12,10,.20), rgba(10,12,10,.85)),
+        url("https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1800&q=85")
+        center/cover;
+    display: flex;
+    align-items: flex-end;
+}
+
+.hero-content {
+    color: white;
+    padding: 50px;
+    max-width: 760px;
+}
+
+.hero-label {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 13px;
+    margin-bottom: 12px;
+    color: #d0d0c8;
+}
+
+.hero h1 {
+    font-size: 56px;
+    margin: 0 0 12px;
+}
+
+.hero p {
+    font-size: 20px;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.content {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 25px;
+}
+
+.quick-facts {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px;
+    margin-bottom: 35px;
+}
+
+.fact {
+    background: white;
+    padding: 22px 15px;
+    border-radius: 5px;
+    text-align: center;
+    border-top: 4px solid #555d55;
+}
+
+.fact strong {
+    display: block;
+    font-size: 19px;
+    margin-bottom: 7px;
+}
+
+.fact span {
+    font-size: 12px;
+    color: #777;
+}
+
+.section {
+    background: white;
+    padding: 35px;
+    margin-bottom: 25px;
+    border-radius: 5px;
+}
+
+.section h2 {
+    margin-top: 0;
+    font-size: 30px;
+    color: #3d443f;
+}
+
+.section p {
+    line-height: 1.7;
+    color: #555;
+}
+
+.highlight {
+    background: #deded8;
+    border-left: 5px solid #555d55;
+    padding: 20px;
+    margin: 25px 0;
+}
+
+.carnotaur-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    align-items: stretch;
+}
+
+.carnotaur-image {
+    min-height: 330px;
+    border-radius: 5px;
+    background:
+        linear-gradient(rgba(15,17,15,.2), rgba(15,17,15,.65)),
+        url("https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1200&q=85")
+        center/cover;
+}
+
+.carnotaur-info {
+    background: #f2f1ed;
+    padding: 30px;
+    border-radius: 5px;
+}
+
+.carnotaur-info h3 {
+    margin-top: 0;
+    font-size: 26px;
+    color: #414940;
+}
+
+.scientific {
+    font-style: italic;
+    color: #777;
+    margin-bottom: 20px;
+}
+
+.info-row {
+    padding: 12px 0;
+    border-bottom: 1px solid #d7d5d0;
+    font-size: 14px;
+}
+
+.info-row strong {
+    display: inline-block;
+    width: 130px;
+    color: #444;
+}
+
+.experience-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.experience {
+    background: #efeee9;
+    padding: 25px;
+    border-radius: 5px;
+}
+
+.experience h3 {
+    margin-top: 0;
+    color: #424b44;
+}
+
+.experience p {
+    font-size: 14px;
+}
+
+.warning {
+    background: #e6e1d8;
+    border-left: 5px solid #716653;
+    padding: 22px;
+    margin-top: 25px;
+}
+
+.warning strong {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.back {
+    text-align: center;
+    margin: 35px 0;
+}
+
+.back a {
+    display: inline-block;
+    background: #48534b;
+    color: white;
+    padding: 14px 25px;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.back a:hover {
+    background: #374039;
+}
+
+footer {
+    background: #292b2a;
+    color: #aaa;
+    text-align: center;
+    padding: 35px;
+    margin-top: 50px;
+    font-size: 13px;
+}
+
+@media (max-width: 800px) {
+
+    header {
+        padding: 15px 20px;
+    }
+
+    nav {
+        display: none;
+    }
+
+    .hero {
+        min-height: 360px;
+    }
+
+    .hero-content {
+        padding: 30px;
+    }
+
+    .hero h1 {
+        font-size: 42px;
+    }
+
+    .quick-facts {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .carnotaur-card,
+    .experience-grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo-area">
+
+        <div class="logo">🦖</div>
+
+        <div>
+            <div class="brand">PREHISTORIC PARK</div>
+            <div class="tagline">WHERE THE PAST IS ALIVE</div>
+        </div>
+
+    </div>
+
+    <nav>
+        <a href="../index.html">Home</a>
+        <a href="../park-map.html">Park Map</a>
+        <a href="../index.html#animals">Animals</a>
+        <a href="../index.html#visit">Plan Your Visit</a>
+    </nav>
+
+</header>
+
+<div class="breadcrumb">
+
+    <a href="../index.html">Home</a>
+    &nbsp; / &nbsp;
+
+    <a href="../park-map.html">Park Map</a>
+    &nbsp; / &nbsp;
+
+    Cave of the Carnotaur
+
+</div>
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="hero-label">
+            Predator Observation Facility
+        </div>
+
+        <h1>Cave of the Carnotaur</h1>
+
+        <p>
+            Enter the darkness. Deep within the rock lies one of the park's
+            most unusual predator habitats.
+        </p>
+
+    </div>
+
+</section>
+
+<main class="content">
+
+    <div class="quick-facts">
+
+        <div class="fact">
+            <strong>Central-East</strong>
+            <span>Park Sector</span>
+        </div>
+
+        <div class="fact">
+            <strong>1 Species</strong>
+            <span>Resident Species</span>
+        </div>
+
+        <div class="fact">
+            <strong>Predator</strong>
+            <span>Carnivorous Dinosaur</span>
+        </div>
+
+        <div class="fact">
+            <strong>Cave</strong>
+            <span>Enclosed Habitat</span>
+        </div>
+
+        <div class="fact">
+            <strong>Limited</strong>
+            <span>Viewing Capacity</span>
+        </div>
+
+    </div>
+
+    <section class="section">
+
+        <h2>Inside the Cave</h2>
+
+        <p>
+            The Cave of the Carnotaur is a purpose-built rocky habitat
+            designed around the behaviour of a single Carnotaurus.
+            The enclosure incorporates tunnels, chambers, elevated
+            ledges and concealed holding areas.
+        </p>
+
+        <p>
+            Visitors follow a controlled path through the rock formation,
+            entering a series of viewing chambers positioned around the
+            habitat.
+        </p>
+
+        <div class="highlight">
+
+            <strong>A Different Kind of Encounter</strong><br>
+
+            Unlike the open habitats elsewhere in Prehistoric Park,
+            the Cave of the Carnotaur deliberately limits visibility.
+            The animal may be visible in one chamber and completely
+            absent from another.
+
+        </div>
+
+        <p>
+            Low lighting and naturalistic rock formations allow the
+            Carnotaurus to retreat from view when it chooses. Visitors
+            are encouraged to remain quiet while inside the viewing
+            tunnels.
+        </p>
+
+    </section>
+
+    <section class="section">
+
+        <h2>The Carnotaur</h2>
+
+        <div class="carnotaur-card">
+
+            <div class="carnotaur-image"></div>
+
+            <div class="carnotaur-info">
+
+                <h3>Carnotaurus</h3>
+
+                <div class="scientific">
+                    Carnotaurus sastrei
+                </div>
+
+                <div class="info-row">
+                    <strong>Period:</strong>
+                    Late Cretaceous
+                </div>
+
+                <div class="info-row">
+                    <strong>Location:</strong>
+                    Patagonia
+                </div>
+
+                <div class="info-row">
+                    <strong>Diet:</strong>
+                    Carnivorous
+                </div>
+
+                <div class="info-row">
+                    <strong>Feature:</strong>
+                    Prominent horns
+                </div>
+
+                <div class="info-row">
+                    <strong>Habitat:</strong>
+                    Rocky woodland
+                </div>
+
+                <p>
+                    Carnotaurus was a lightly built but powerful theropod
+                    distinguished by the pair of prominent horns above
+                    its eyes. Its unusually short arms and deep skull
+                    give it a distinctive appearance among the park's
+                    predators.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="section">
+
+        <h2>The Cave Experience</h2>
+
+        <div class="experience-grid">
+
+            <div class="experience">
+
+                <h3>🪨 Rock Tunnels</h3>
+
+                <p>
+                    Walk through a network of artificial limestone and
+                    basalt formations surrounding the main habitat.
+                </p>
+
+            </div>
+
+            <div class="experience">
+
+                <h3>👁 Viewing Chambers</h3>
+
+                <p>
+                    Multiple protected viewing areas provide different
+                    perspectives into the enclosure.
+                </p>
+
+            </div>
+
+            <div class="experience">
+
+                <h3>🌑 Low-Light Habitat</h3>
+
+                <p>
+                    The darker environment allows the Carnotaurus to
+                    move between visible and concealed areas naturally.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="warning">
+
+            <strong>Visitor Safety</strong>
+
+            This is a predator habitat. Visitors must remain behind
+            designated barriers and follow staff instructions at all
+            times. Do not knock on viewing glass, shout into the habitat,
+            use flash photography or attempt to attract the animal.
+
+        </div>
+
+    </section>
+
+    <div class="back">
+        <a href="../park-map.html">← Return to Park Map</a>
+    </div>
+
+</main>
+
+<footer>
+
+    <div>PREHISTORIC PARK</div>
+
+    <div style="margin-top:8px;">
+        Where the past is alive.
+    </div>
+
+</footer>
+
+</body>
+</html>
