@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Winged Heights | Prehistoric Park</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #e7e5df;
+    color: #303331;
+}
+
+header {
+    background: #292d2b;
+    color: white;
+    padding: 18px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo {
+    font-size: 38px;
+}
+
+.brand {
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.tagline {
+    font-size: 11px;
+    color: #aaa;
+    letter-spacing: 2px;
+}
+
+nav a {
+    color: #ddd;
+    text-decoration: none;
+    margin-left: 25px;
+    font-size: 14px;
+}
+
+nav a:hover {
+    color: white;
+}
+
+.breadcrumb {
+    max-width: 1200px;
+    margin: 25px auto 10px;
+    padding: 0 25px;
+    font-size: 13px;
+    color: #777;
+}
+
+.breadcrumb a {
+    color: #566c5c;
+    text-decoration: none;
+}
+
+.hero {
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: 420px;
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative;
+    background:
+        linear-gradient(rgba(20,35,25,.20), rgba(20,35,25,.72)),
+        url("https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=1800&q=85")
+        center/cover;
+    display: flex;
+    align-items: flex-end;
+}
+
+.hero-content {
+    color: white;
+    padding: 50px;
+    max-width: 750px;
+}
+
+.hero-label {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 13px;
+    margin-bottom: 12px;
+}
+
+.hero h1 {
+    font-size: 58px;
+    margin: 0 0 12px;
+}
+
+.hero p {
+    font-size: 20px;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.content {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 25px;
+}
+
+.quick-facts {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px;
+    margin-bottom: 35px;
+}
+
+.fact {
+    background: white;
+    padding: 22px 15px;
+    border-radius: 5px;
+    text-align: center;
+    border-top: 4px solid #6c7c68;
+}
+
+.fact strong {
+    display: block;
+    font-size: 19px;
+    margin-bottom: 7px;
+}
+
+.fact span {
+    font-size: 12px;
+    color: #777;
+}
+
+.section {
+    background: white;
+    padding: 35px;
+    margin-bottom: 25px;
+    border-radius: 5px;
+}
+
+.section h2 {
+    margin-top: 0;
+    font-size: 30px;
+    color: #3e4c42;
+}
+
+.section p {
+    line-height: 1.7;
+    color: #555;
+}
+
+.highlight {
+    background: #dfe4dc;
+    border-left: 5px solid #697b68;
+    padding: 20px;
+    margin: 25px 0;
+}
+
+.residents {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+}
+
+.resident {
+    border: 1px solid #ddd;
+    padding: 22px;
+    border-radius: 5px;
+    background: #f7f6f2;
+}
+
+.resident h3 {
+    margin: 0 0 5px;
+    color: #3f5044;
+    font-size: 20px;
+}
+
+.scientific {
+    font-style: italic;
+    color: #777;
+    font-size: 13px;
+    margin-bottom: 12px;
+}
+
+.resident p {
+    margin-bottom: 0;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.experience-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.experience {
+    background: #f0efeb;
+    padding: 25px;
+    border-radius: 5px;
+}
+
+.experience h3 {
+    margin-top: 0;
+    color: #435247;
+}
+
+.experience p {
+    font-size: 14px;
+}
+
+.notice {
+    background: #ece9df;
+    border-left: 5px solid #8a8064;
+    padding: 20px;
+    margin-top: 25px;
+}
+
+.notice strong {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.back {
+    text-align: center;
+    margin: 35px 0;
+}
+
+.back a {
+    display: inline-block;
+    background: #48564c;
+    color: white;
+    padding: 14px 25px;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.back a:hover {
+    background: #37433b;
+}
+
+footer {
+    background: #292d2b;
+    color: #aaa;
+    text-align: center;
+    padding: 35px;
+    margin-top: 50px;
+    font-size: 13px;
+}
+
+@media (max-width: 800px) {
+
+    header {
+        padding: 15px 20px;
+    }
+
+    nav {
+        display: none;
+    }
+
+    .hero {
+        min-height: 360px;
+    }
+
+    .hero-content {
+        padding: 30px;
+    }
+
+    .hero h1 {
+        font-size: 42px;
+    }
+
+    .quick-facts {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .residents,
+    .experience-grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo-area">
+        <div class="logo">🦖</div>
+
+        <div>
+            <div class="brand">PREHISTORIC PARK</div>
+            <div class="tagline">WHERE THE PAST IS ALIVE</div>
+        </div>
+    </div>
+
+    <nav>
+        <a href="../index.html">Home</a>
+        <a href="../park-map.html">Park Map</a>
+        <a href="../index.html#animals">Animals</a>
+        <a href="../index.html#visit">Plan Your Visit</a>
+    </nav>
+
+</header>
+
+<div class="breadcrumb">
+    <a href="../index.html">Home</a>
+    &nbsp; / &nbsp;
+    <a href="../park-map.html">Park Map</a>
+    &nbsp; / &nbsp;
+    Winged Heights
+</div>
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="hero-label">The Great Pterosaur Aviary</div>
+
+        <h1>Winged Heights</h1>
+
+        <p>
+            Look to the sky. Some of the largest flying animals ever known
+            circle above the world's largest prehistoric aviary.
+        </p>
+
+    </div>
+
+</section>
+
+<main class="content">
+
+    <div class="quick-facts">
+
+        <div class="fact">
+            <strong>North-East</strong>
+            <span>Park Sector</span>
+        </div>
+
+        <div class="fact">
+            <strong>5 Species</strong>
+            <span>Resident Species</span>
+        </div>
+
+        <div class="fact">
+            <strong>Massive</strong>
+            <span>Open Aviary</span>
+        </div>
+
+        <div class="fact">
+            <strong>Sky Viewing</strong>
+            <span>Primary Experience</span>
+        </div>
+
+        <div class="fact">
+            <strong>All Ages</strong>
+            <span>Family Attraction</span>
+        </div>
+
+    </div>
+
+    <section class="section">
+
+        <h2>Above the Park</h2>
+
+        <p>
+            Winged Heights is a vast enclosed aviary designed specifically
+            for prehistoric flying reptiles. Its enormous height allows the
+            animals to make sustained flights rather than simply moving
+            between perches.
+        </p>
+
+        <p>
+            The habitat combines tall trees, rocky ledges, shallow water,
+            open ground and elevated platforms. Visitors enter through a
+            secure double-door system before following a winding trail
+            beneath the flight space.
+        </p>
+
+        <div class="highlight">
+
+            <strong>Look Up</strong><br>
+
+            The largest residents can have wingspans measured in metres.
+            Visitors may see them gliding overhead, circling above the
+            canopy or landing on the elevated structures throughout the
+            aviary.
+
+        </div>
+
+        <p>
+            Because the animals are capable of three-dimensional movement,
+            sightings can occur almost anywhere within the enclosure.
+            Keep an eye on the canopy as well as the ground.
+        </p>
+
+    </section>
+
+    <section class="section">
+
+        <h2>Residents</h2>
+
+        <div class="residents">
+
+            <div class="resident">
+
+                <h3>Quetzalcoatlus</h3>
+
+                <div class="scientific">
+                    Quetzalcoatlus northropi
+                </div>
+
+                <p>
+                    One of the largest known flying animals. Its immense
+                    wingspan makes an overhead encounter one of the most
+                    impressive sights in the park.
+                </p>
+
+            </div>
+
+            <div class="resident">
+
+                <h3>Pteranodon</h3>
+
+                <div class="scientific">
+                    Pteranodon longiceps
+                </div>
+
+                <p>
+                    A familiar Late Cretaceous pterosaur with a long crest
+                    and narrow beak. Often seen gliding above the central
+                    water area.
+                </p>
+
+            </div>
+
+            <div class="resident">
+
+                <h3>Tapejara</h3>
+
+                <div class="scientific">
+                    Tapejara wellnhoferi
+                </div>
+
+                <p>
+                    A smaller crested pterosaur known for its distinctive
+                    head shape and highly manoeuvrable flight.
+                </p>
+
+            </div>
+
+            <div class="resident">
+
+                <h3>Dimorphodon</h3>
+
+                <div class="scientific">
+                    Dimorphodon macronyx
+                </div>
+
+                <p>
+                    An early pterosaur with an unusually large head and
+                    relatively short wings. Frequently observed around
+                    the lower rock formations.
+                </p>
+
+            </div>
+
+            <div class="resident">
+
+                <h3>Kunpengopterus</h3>
+
+                <div class="scientific">
+                    Kunpengopterus antipollicatus
+                </div>
+
+                <p>
+                    A small darwinopteran pterosaur nicknamed
+                    "Monkeydactyl", known for its unusual grasping
+                    adaptations.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="section">
+
+        <h2>The Winged Heights Experience</h2>
+
+        <div class="experience-grid">
+
+            <div class="experience">
+
+                <h3>🦅 Flight Overhead</h3>
+
+                <p>
+                    Walk directly beneath the flight space and watch the
+                    animals navigate the enormous aviary above you.
+                </p>
+
+            </div>
+
+            <div class="experience">
+
+                <h3>🌿 Canopy Trail</h3>
+
+                <p>
+                    Follow the elevated trail through woodland and rocky
+                    viewing areas designed to bring visitors closer to
+                    the upper levels of the habitat.
+                </p>
+
+            </div>
+
+            <div class="experience">
+
+                <h3>💧 Watering Grounds</h3>
+
+                <p>
+                    A large shallow water area attracts several species
+                    throughout the day and provides excellent viewing
+                    opportunities.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="notice">
+
+            <strong>Visitor Safety</strong>
+
+            Winged Heights is an enclosed flight habitat.
+            Visitors must remain on designated paths and must not attempt
+            to attract, feed or touch the animals. Do not throw objects
+            into the aviary.
+
+        </div>
+
+    </section>
+
+    <div class="back">
+        <a href="../park-map.html">← Return to Park Map</a>
+    </div>
+
+</main>
+
+<footer>
+
+    <div>PREHISTORIC PARK</div>
+
+    <div style="margin-top:8px;">
+        Where the past is alive.
+    </div>
+
+</footer>
+
+</body>
+</html>
