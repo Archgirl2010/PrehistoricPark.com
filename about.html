@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>About the Park | Prehistoric Park</title>
+
+    <style>
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #e8e7e2;
+            color: #2f332f;
+        }
+
+        header {
+            background: #252925;
+            color: #f1f0eb;
+            padding: 25px 40px;
+        }
+
+        .header-inner {
+            max-width: 1200px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand {
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .tagline {
+            font-size: 12px;
+            letter-spacing: 2px;
+            color: #b8bbb4;
+            margin-top: 5px;
+        }
+
+        nav a {
+            color: #e5e5df;
+            text-decoration: none;
+            margin-left: 25px;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .hero {
+            background: #555c52;
+            color: white;
+            padding: 90px 40px;
+        }
+
+        .hero-inner {
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .kicker {
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 12px;
+            color: #c9cbc3;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-size: 54px;
+            line-height: 1.05;
+            margin: 0;
+            font-weight: 600;
+        }
+
+        .hero p {
+            max-width: 650px;
+            font-size: 19px;
+            line-height: 1.7;
+            color: #e1e2dd;
+            margin-top: 25px;
+        }
+
+        .section {
+            max-width: 1100px;
+            margin: auto;
+            padding: 70px 40px;
+        }
+
+        h2 {
+            font-size: 36px;
+            margin: 0 0 25px;
+        }
+
+        p {
+            line-height: 1.7;
+            font-size: 16px;
+        }
+
+        .intro {
+            max-width: 800px;
+            font-size: 18px;
+            color: #555a54;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            margin-top: 45px;
+        }
+
+        .about-card {
+            background: #f5f4ef;
+            padding: 30px;
+            border: 1px solid #d2d2cb;
+        }
+
+        .about-card h3 {
+            margin-top: 0;
+            font-size: 22px;
+        }
+
+        .facts {
+            background: #d8d8d0;
+        }
+
+        .fact-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-top: 35px;
+        }
+
+        .fact {
+            background: #ecebe5;
+            padding: 25px;
+        }
+
+        .fact-number {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .fact-label {
+            color: #62665f;
+        }
+
+        footer {
+            background: #252925;
+            color: #d8dad4;
+            padding: 45px 40px;
+        }
+
+        .footer-inner {
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        footer p {
+            color: #aeb2aa;
+        }
+
+        footer a {
+            color: #d8dad4;
+            text-decoration: none;
+            margin-right: 20px;
+            font-size: 14px;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .copyright {
+            max-width: 1100px;
+            margin: 35px auto 0;
+            padding-top: 20px;
+            border-top: 1px solid #444840;
+            font-size: 12px;
+            color: #858a82;
+        }
+
+        @media (max-width: 700px) {
+
+            .header-inner {
+                display: block;
+            }
+
+            nav {
+                margin-top: 20px;
+            }
+
+            nav a {
+                margin: 0 15px 0 0;
+            }
+
+            h1 {
+                font-size: 40px;
+            }
+
+            .about-grid,
+            .fact-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+    <div class="header-inner">
+
+        <div>
+
+            <div class="brand">
+                PREHISTORIC PARK
+            </div>
+
+            <div class="tagline">
+                WHERE THE PAST IS ALIVE
+            </div>
+
+        </div>
+
+
+        <nav>
+
+            <a href="index.html">Home</a>
+            <a href="index.html#animals">Animals</a>
+            <a href="index.html#map">Park Map</a>
+            <a href="index.html#visit">Plan Your Visit</a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+
+<section class="hero">
+
+    <div class="hero-inner">
+
+        <div class="kicker">
+            About Prehistoric Park
+        </div>
+
+        <h1>
+            Where the Past<br>
+            comes to you.
+        </h1>
+
+        <p>
+            Prehistoric Park is a world-class wildlife sanctuary
+            dedicated to the conservation, study and care of
+            living prehistoric animals.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<section>
+
+    <div class="section">
+
+        <div class="kicker">
+            Our Story
+        </div>
+
+        <h2>
+            A Different Kind of Wildlife Park
+        </h2>
+
+        <p class="intro">
+            Established in 2017, Prehistoric Park was founded
+            with a simple ambition: to bring the world's prehistoric
+            past back to life and give visitors the opportunity
+            to experience animals that disappeared from the Earth
+            millions of years ago.
+        </p>
+
+        <p>
+            Today, the park is home to one of the world's most
+            significant collections of living prehistoric species.
+            Our habitats have been designed around the needs of
+            each animal, providing space, enrichment and natural
+            environments wherever possible.
+        </p>
+
+        <p>
+            Alongside our visitor facilities, Prehistoric Park
+            operates dedicated research, conservation and animal
+            care programmes. Scientists, veterinarians and animal
+            specialists work throughout the park to better understand
+            the animals in our care and support their long-term future.
+        </p>
+
+
+        <div class="about-grid">
+
+
+            <div class="about-card">
+
+                <h3>
+                    Conservation
+                </h3>
+
+                <p>
+                    Our conservation programme focuses on maintaining
+                    healthy populations of prehistoric species and
+                    preserving the genetic diversity of animals in
+                    our care.
+                </p>
+
+                <p>
+                    The park works closely with zoological,
+                    veterinary and scientific organisations around
+                    the world.
+                </p>
+
+            </div>
+
+
+            <div class="about-card">
+
+                <h3>
+                    Research
+                </h3>
+
+                <p>
+                    Our research teams study prehistoric animal
+                    behaviour, biology, ecology and welfare.
+                </p>
+
+                <p>
+                    Research is conducted alongside our animal
+                    care teams to ensure that every habitat is
+                    designed around the animals that live there.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<section class="facts">
+
+    <div class="section">
+
+        <div class="kicker">
+            The Park
+        </div>
+
+        <h2>
+            By the Numbers
+        </h2>
+
+
+        <div class="fact-grid">
+
+
+            <div class="fact">
+
+                <div class="fact-number">
+                    58
+                </div>
+
+                <div class="fact-label">
+                    Prehistoric species
+                </div>
+
+            </div>
+
+
+            <div class="fact">
+
+                <div class="fact-number">
+                    11
+                </div>
+
+                <div class="fact-label">
+                    Major animal habitats
+                </div>
+
+            </div>
+
+
+            <div class="fact">
+
+                <div class="fact-number">
+                    2017
+                </div>
+
+                <div class="fact-label">
+                    Year established
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<footer>
+
+    <div class="footer-inner">
+
+        <strong>
+            PREHISTORIC PARK
+        </strong>
+
+        <p>
+            A world-class prehistoric wildlife
+            conservation and visitor facility.
+        </p>
+
+        <a href="index.html">Home</a>
+        <a href="index.html#animals">Animals</a>
+        <a href="index.html#map">Park Map</a>
+        <a href="index.html#visit">Plan Your Visit</a>
+
+    </div>
+
+
+    <div class="copyright">
+
+        © 2026 Prehistoric Park. All rights reserved.
+        &nbsp; | &nbsp;
+        PREHISTORIC PARK CONSERVATION AUTHORITY
+
+    </div>
+
+</footer>
+
+
+</body>
+
+</html>
