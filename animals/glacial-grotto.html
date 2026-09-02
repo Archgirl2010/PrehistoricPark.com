@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Glacial Grotto | Prehistoric Park</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #e2e5e5;
+    color: #303437;
+}
+
+header {
+    background: #292d2f;
+    color: white;
+    padding: 18px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo {
+    font-size: 38px;
+}
+
+.brand {
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.tagline {
+    font-size: 11px;
+    color: #aaa;
+    letter-spacing: 2px;
+}
+
+nav a {
+    color: #ddd;
+    text-decoration: none;
+    margin-left: 25px;
+    font-size: 14px;
+}
+
+nav a:hover {
+    color: white;
+}
+
+.breadcrumb {
+    max-width: 1200px;
+    margin: 25px auto 10px;
+    padding: 0 25px;
+    font-size: 13px;
+    color: #777;
+}
+
+.breadcrumb a {
+    color: #566b72;
+    text-decoration: none;
+}
+
+.hero {
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: 440px;
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative;
+    background:
+        linear-gradient(rgba(40,55,60,.12), rgba(20,30,34,.82)),
+        url("https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=1800&q=85")
+        center/cover;
+    display: flex;
+    align-items: flex-end;
+}
+
+.hero-content {
+    color: white;
+    padding: 50px;
+    max-width: 800px;
+}
+
+.hero-label {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 13px;
+    margin-bottom: 12px;
+}
+
+.hero h1 {
+    font-size: 58px;
+    margin: 0 0 12px;
+}
+
+.hero p {
+    font-size: 20px;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.content {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 25px;
+}
+
+.quick-facts {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px;
+    margin-bottom: 35px;
+}
+
+.fact {
+    background: white;
+    padding: 22px 15px;
+    border-radius: 5px;
+    text-align: center;
+    border-top: 4px solid #71838a;
+}
+
+.fact strong {
+    display: block;
+    font-size: 19px;
+    margin-bottom: 7px;
+}
+
+.fact span {
+    font-size: 12px;
+    color: #777;
+}
+
+.section {
+    background: white;
+    padding: 35px;
+    margin-bottom: 25px;
+    border-radius: 5px;
+}
+
+.section h2 {
+    margin-top: 0;
+    font-size: 30px;
+    color: #3f4d52;
+}
+
+.section p {
+    line-height: 1.7;
+    color: #555;
+}
+
+.highlight {
+    background: #dfe5e6;
+    border-left: 5px solid #71838a;
+    padding: 20px;
+    margin: 25px 0;
+}
+
+.residents {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+}
+
+.resident {
+    border: 1px solid #d6dadd;
+    padding: 24px;
+    border-radius: 5px;
+    background: #f5f6f5;
+}
+
+.resident h3 {
+    margin: 0 0 5px;
+    color: #405159;
+    font-size: 21px;
+}
+
+.scientific {
+    font-style: italic;
+    color: #777;
+    font-size: 13px;
+    margin-bottom: 12px;
+}
+
+.resident p {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+.experience-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.experience {
+    background: #eef0ef;
+    padding: 25px;
+    border-radius: 5px;
+}
+
+.experience h3 {
+    margin-top: 0;
+    color: #425159;
+}
+
+.experience p {
+    font-size: 14px;
+}
+
+.notice {
+    background: #e7e8e5;
+    border-left: 5px solid #7a7770;
+    padding: 20px;
+    margin-top: 25px;
+}
+
+.notice strong {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.back {
+    text-align: center;
+    margin: 35px 0;
+}
+
+.back a {
+    display: inline-block;
+    background: #4f5e63;
+    color: white;
+    padding: 14px 25px;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.back a:hover {
+    background: #3d4b50;
+}
+
+footer {
+    background: #292d2f;
+    color: #aaa;
+    text-align: center;
+    padding: 35px;
+    margin-top: 50px;
+    font-size: 13px;
+}
+
+@media (max-width: 800px) {
+
+    header {
+        padding: 15px 20px;
+    }
+
+    nav {
+        display: none;
+    }
+
+    .hero {
+        min-height: 360px;
+    }
+
+    .hero-content {
+        padding: 30px;
+    }
+
+    .hero h1 {
+        font-size: 42px;
+    }
+
+    .quick-facts {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .residents,
+    .experience-grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo-area">
+
+        <div class="logo">🦖</div>
+
+        <div>
+            <div class="brand">PREHISTORIC PARK</div>
+            <div class="tagline">WHERE THE PAST IS ALIVE</div>
+        </div>
+
+    </div>
+
+    <nav>
+        <a href="../index.html">Home</a>
+        <a href="../park-map.html">Park Map</a>
+        <a href="../index.html#animals">Animals</a>
+        <a href="../index.html#visit">Plan Your Visit</a>
+    </nav>
+
+</header>
+
+<div class="breadcrumb">
+
+    <a href="../index.html">Home</a>
+    &nbsp; / &nbsp;
+
+    <a href="../park-map.html">Park Map</a>
+    &nbsp; / &nbsp;
+
+    Glacial Grotto
+
+</div>
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="hero-label">
+            Ice Age Habitat
+        </div>
+
+        <h1>Glacial Grotto</h1>
+
+        <p>
+            Step into the cold. Discover the giants and predators that
+            survived into the final chapters of the Ice Age.
+        </p>
+
+    </div>
+
+</section>
+
+<main class="content">
+
+    <div class="quick-facts">
+
+        <div class="fact">
+            <strong>South-West</strong>
+            <span>Park Sector</span>
+        </div>
+
+        <div class="fact">
+            <strong>4 Species</strong>
+            <span>Resident Species</span>
+        </div>
+
+        <div class="fact">
+            <strong>Ice Age</strong>
+            <span>Late Pleistocene</span>
+        </div>
+
+        <div class="fact">
+            <strong>Cold</strong>
+            <span>Controlled Habitat</span>
+        </div>
+
+        <div class="fact">
+            <strong>Walking Trail</strong>
+            <span>Primary Experience</span>
+        </div>
+
+    </div>
+
+    <section class="section">
+
+        <h2>Welcome to the Ice Age</h2>
+
+        <p>
+            Glacial Grotto recreates a cold, rugged environment inspired
+            by the landscapes occupied by some of the world's most famous
+            Ice Age animals.
+        </p>
+
+        <p>
+            The habitat combines rocky terrain, open tundra, frozen
+            ground and sheltered woodland. Artificial snow and
+            temperature-controlled areas allow the animals to experience
+            conditions appropriate to their natural environments.
+        </p>
+
+        <div class="highlight">
+
+            <strong>A World of Ice</strong><br>
+
+            During the coldest periods, much of the northern world was
+            covered by enormous ice sheets. The animals living here
+            evolved to survive in some of the harshest environments
+            experienced by large terrestrial mammals.
+
+        </div>
+
+        <p>
+            Visitors follow a winding trail around the habitat, with
+            protected viewing areas overlooking the open plains and
+            rocky shelters.
+        </p>
+
+    </section>
+
+    <section class="section">
+
+        <h2>The Residents</h2>
+
+        <div class="residents">
+
+            <div class="resident">
+
+                <h3>Woolly Mammoth</h3>
+
+                <div class="scientific">
+                    Mammuthus primigenius
+                </div>
+
+                <p>
+                    One of the most recognisable animals of the Ice Age.
+                    Thick fur, a layer of body fat and enormous tusks
+                    helped the woolly mammoth survive in cold northern
+                    environments.
+                </p>
+
+            </div>
+
+            <div class="resident">
+
+                <h3>Woolly Rhinoceros</h3>
+
+                <div class="scientific">
+                    Coelodonta antiquitatis
+                </div>
+
+                <p>
+                    A heavily built rhinoceros covered in thick hair.
+                    Its large horn was used for feeding and potentially
+                    for defence.
+                </p>
+
+            </div>
+
+            <div class="resident">
+
+                <h3>Smilodon</h3>
+
+                <div class="scientific">
+                    Smilodon
+                </div>
+
+                <p>
+                    The famous sabre-toothed cat. Smilodon possessed
+                    enormous upper canine teeth and a powerful build
+                    adapted for ambushing large prey.
+                </p>
+
+            </div>
+
+            <div class="resident">
+
+                <h3>Irish Elk</h3>
+
+                <div class="scientific">
+                    Megaloceros giganteus
+                </div>
+
+                <p>
+                    Despite its common name, this enormous deer was not
+                    closely related to modern elk. Its enormous antlers
+                    could span several metres.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="section">
+
+        <h2>The Glacial Grotto Experience</h2>
+
+        <div class="experience-grid">
+
+            <div class="experience">
+
+                <h3>❄️ Frozen Plains</h3>
+
+                <p>
+                    Wide open areas recreate the sparse vegetation and
+                    exposed terrain of Ice Age environments.
+                </p>
+
+            </div>
+
+            <div class="experience">
+
+                <h3>🦣 Mammoth Lookout</h3>
+
+                <p>
+                    A raised viewing platform overlooks the main grazing
+                    area and provides broad views across the habitat.
+                </p>
+
+            </div>
+
+            <div class="experience">
+
+                <h3>🪨 Grotto Trail</h3>
+
+                <p>
+                    Follow the trail through rocky shelters and colder
+                    sections of the habitat where the predators can
+                    retreat from view.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="notice">
+
+            <strong>Visitor Safety</strong>
+
+            Glacial Grotto contains large animals and active predators.
+            Visitors must remain on designated paths and behind
+            protective barriers. Please do not feed, touch or attempt
+            to attract the animals.
+
+        </div>
+
+    </section>
+
+    <div class="back">
+
+        <a href="../park-map.html">
+            ← Return to Park Map
+        </a>
+
+    </div>
+
+</main>
+
+<footer>
+
+    <div>PREHISTORIC PARK</div>
+
+    <div style="margin-top:8px;">
+        Where the past is alive.
+    </div>
+
+</footer>
+
+</body>
+</html>
