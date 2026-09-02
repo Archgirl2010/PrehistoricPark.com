@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Primeval Forest | Prehistoric Park</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #e3e2dc;
+    color: #303331;
+}
+
+header {
+    background: #292d2b;
+    color: white;
+    padding: 18px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo {
+    font-size: 38px;
+}
+
+.brand {
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.tagline {
+    font-size: 11px;
+    color: #aaa;
+    letter-spacing: 2px;
+}
+
+nav a {
+    color: #ddd;
+    text-decoration: none;
+    margin-left: 25px;
+    font-size: 14px;
+}
+
+nav a:hover {
+    color: white;
+}
+
+.breadcrumb {
+    max-width: 1200px;
+    margin: 25px auto 10px;
+    padding: 0 25px;
+    font-size: 13px;
+    color: #777;
+}
+
+.breadcrumb a {
+    color: #566c5c;
+    text-decoration: none;
+}
+
+.hero {
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: 440px;
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative;
+    background:
+        linear-gradient(rgba(20,35,24,.18), rgba(10,20,14,.84)),
+        url("https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=1800&q=85")
+        center/cover;
+    display: flex;
+    align-items: flex-end;
+}
+
+.hero-content {
+    color: white;
+    padding: 50px;
+    max-width: 800px;
+}
+
+.hero-label {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 13px;
+    margin-bottom: 12px;
+}
+
+.hero h1 {
+    font-size: 58px;
+    margin: 0 0 12px;
+}
+
+.hero p {
+    font-size: 20px;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.content {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 25px;
+}
+
+.quick-facts {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px;
+    margin-bottom: 35px;
+}
+
+.fact {
+    background: white;
+    padding: 22px 15px;
+    border-radius: 5px;
+    text-align: center;
+    border-top: 4px solid #5d705f;
+}
+
+.fact strong {
+    display: block;
+    font-size: 19px;
+    margin-bottom: 7px;
+}
+
+.fact span {
+    font-size: 12px;
+    color: #777;
+}
+
+.section {
+    background: white;
+    padding: 35px;
+    margin-bottom: 25px;
+    border-radius: 5px;
+}
+
+.section h2 {
+    margin-top: 0;
+    font-size: 30px;
+    color: #3d4c41;
+}
+
+.section p {
+    line-height: 1.7;
+    color: #555;
+}
+
+.highlight {
+    background: #dce2da;
+    border-left: 5px solid #5d705f;
+    padding: 20px;
+    margin: 25px 0;
+}
+
+.residents {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+}
+
+.resident {
+    border: 1px solid #d8d8d2;
+    padding: 24px;
+    border-radius: 5px;
+    background: #f6f5f1;
+}
+
+.resident h3 {
+    margin: 0 0 5px;
+    color: #3d5044;
+    font-size: 21px;
+}
+
+.scientific {
+    font-style: italic;
+    color: #777;
+    font-size: 13px;
+    margin-bottom: 12px;
+}
+
+.resident p {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+.experience-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.experience {
+    background: #efeee9;
+    padding: 25px;
+    border-radius: 5px;
+}
+
+.experience h3 {
+    margin-top: 0;
+    color: #425047;
+}
+
+.experience p {
+    font-size: 14px;
+}
+
+.notice {
+    background: #e9e6dd;
+    border-left: 5px solid #81775f;
+    padding: 20px;
+    margin-top: 25px;
+}
+
+.notice strong {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.back {
+    text-align: center;
+    margin: 35px 0;
+}
+
+.back a {
+    display: inline-block;
+    background: #48564c;
+    color: white;
+    padding: 14px 25px;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.back a:hover {
+    background: #37433b;
+}
+
+footer {
+    background: #292d2b;
+    color: #aaa;
+    text-align: center;
+    padding: 35px;
+    margin-top: 50px;
+    font-size: 13px;
+}
+
+@media (max-width: 800px) {
+
+    header {
+        padding: 15px 20px;
+    }
+
+    nav {
+        display: none;
+    }
+
+    .hero {
+        min-height: 360px;
+    }
+
+    .hero-content {
+        padding: 30px;
+    }
+
+    .hero h1 {
+        font-size: 42px;
+    }
+
+    .quick-facts {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .residents,
+    .experience-grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo-area">
+
+        <div class="logo">🦖</div>
+
+        <div>
+            <div class="brand">PREHISTORIC PARK</div>
+            <div class="tagline">WHERE THE PAST IS ALIVE</div>
+        </div>
+
+    </div>
+
+    <nav>
+        <a href="../index.html">Home</a>
+        <a href="../park-map.html">Park Map</a>
+        <a href="../index.html#animals">Animals</a>
+        <a href="../index.html#visit">Plan Your Visit</a>
+    </nav>
+
+</header>
+
+<div class="breadcrumb">
+
+    <a href="../index.html">Home</a>
+    &nbsp; / &nbsp;
+
+    <a href="../park-map.html">Park Map</a>
+    &nbsp; / &nbsp;
+
+    Primeval Forest
+
+</div>
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="hero-label">
+            Prehistoric Forest Habitat
+        </div>
+
+        <h1>Primeval Forest</h1>
+
+        <p>
+            Leave the open plains behind and enter a dense prehistoric
+            woodland where some of the park's most unusual animals live.
+        </p>
+
+    </div>
+
+</section>
+
+<main class="content">
+
+    <div class="quick-facts">
+
+        <div class="fact">
+            <strong>South Sector</strong>
+            <span>Park Location</span>
+        </div>
+
+        <div class="fact">
+            <strong>5 Species</strong>
+            <span>Resident Species</span>
+        </div>
+
+        <div class="fact">
+            <strong>Forest</strong>
+            <span>Dense Woodland</span>
+        </div>
+
+        <div class="fact">
+            <strong>Mixed</strong>
+            <span>Herbivores & Predators</span>
+        </div>
+
+        <div class="fact">
+            <strong>Walking Trail</strong>
+            <span>Primary Experience</span>
+        </div>
+
+    </div>
+
+    <section class="section">
+
+        <h2>Into the Primeval Forest</h2>
+
+        <p>
+            Primeval Forest is a densely planted habitat designed to
+            recreate the atmosphere of an ancient prehistoric woodland.
+            Tall trees, thick undergrowth, ferns and open forest clearings
+            create a landscape where visibility is often limited.
+        </p>
+
+        <p>
+            The habitat contains a deliberately varied collection of
+            prehistoric animals. Some are large herbivores, while others
+            are powerful predators. Rather than displaying each animal
+            separately, the environment allows visitors to experience
+            the forest as a living ecosystem.
+        </p>
+
+        <div class="highlight">
+
+            <strong>Not Everything Is Visible</strong><br>
+
+            Primeval Forest is designed around discovery. Animals may
+            appear briefly between the trees before disappearing back
+            into the vegetation. Take your time and watch the forest
+            carefully.
+
+        </div>
+
+        <p>
+            A winding guest trail follows the outer sections of the
+            habitat, with several protected viewing areas overlooking
+            forest clearings and feeding grounds.
+        </p>
+
+    </section>
+
+    <section class="section">
+
+        <h2>The Residents</h2>
+
+        <div class="residents">
+
+            <div class="resident">
+
+                <h3>Therizinosaurus</h3>
+
+                <div class="scientific">
+                    Therizinosaurus cheloniformis
+                </div>
+
+                <p>
+                    An enormous herbivorous theropod famous for its
+                    exceptionally long claws. Despite its unusual
+                    appearance, it primarily fed on vegetation.
+                </p>
+
+            </div>
+
+            <div class="resident">
+
+                <h3>Deinocheirus</h3>
+
+                <div class="scientific">
+                    Deinocheirus mirificus
+                </div>
+
+                <p>
+                    A massive, unusual dinosaur with a broad body,
+                    long arms and a distinctive duck-like bill. It
+                    spends much of its time near the forest's wetter
+                    clearings.
+                </p>
+
+            </div>
+
+            <div class="resident">
+
+                <h3>Dilophosaurus</h3>
+
+                <div class="scientific">
+                    Dilophosaurus wetherilli
+                </div>
+
+                <p>
+                    An early Jurassic predator recognised by the paired
+                    crests on its skull. It occupies the more heavily
+                    wooded sections of the habitat.
+                </p>
+
+            </div>
+
+            <div class="resident">
+
+                <h3>Maip macrothorax</h3>
+
+                <div class="scientific">
+                    Maip macrothorax
+                </div>
+
+                <p>
+                    A large megaraptoran predator from Patagonia.
+                    Its presence adds a particularly formidable predator
+                    to the forest environment.
+                </p>
+
+            </div>
+
+            <div class="resident">
+
+                <h3>Allosaurus</h3>
+
+                <div class="scientific">
+                    Allosaurus fragilis
+                </div>
+
+                <p>
+                    A powerful Jurassic predator with a large skull,
+                    serrated teeth and distinctive ridges above the eyes.
+                    Allosaurus is one of the forest's dominant predators.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="section">
+
+        <h2>The Primeval Forest Experience</h2>
+
+        <div class="experience-grid">
+
+            <div class="experience">
+
+                <h3>🌲 Forest Trail</h3>
+
+                <p>
+                    Follow a winding path through dense prehistoric
+                    vegetation and shaded woodland.
+                </p>
+
+            </div>
+
+            <div class="experience">
+
+                <h3>🔭 Hidden Lookouts</h3>
+
+                <p>
+                    Protected viewing platforms overlook clearings where
+                    animals frequently gather.
+                </p>
+
+            </div>
+
+            <div class="experience">
+
+                <h3>🌿 Forest Discovery</h3>
+
+                <p>
+                    Take your time. The best sightings can happen when
+                    animals emerge unexpectedly from the vegetation.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="notice">
+
+            <strong>Visitor Safety</strong>
+
+            Primeval Forest contains large animals and active predators.
+            Visitors must remain on designated trails and behind
+            protective barriers. Do not leave the marked visitor route,
+            enter restricted areas or attempt to attract the animals.
+
+        </div>
+
+    </section>
+
+    <div class="back">
+
+        <a href="../park-map.html">
+            ← Return to Park Map
+        </a>
+
+    </div>
+
+</main>
+
+<footer>
+
+    <div>PREHISTORIC PARK</div>
+
+    <div style="margin-top:8px;">
+        Where the past is alive.
+    </div>
+
+</footer>
+
+</body>
+</html>
