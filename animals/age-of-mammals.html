@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Age of Mammals | Prehistoric Park</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #e5e2dc;
+    color: #303331;
+}
+
+header {
+    background: #292d2b;
+    color: white;
+    padding: 18px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo {
+    font-size: 38px;
+}
+
+.brand {
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.tagline {
+    font-size: 11px;
+    color: #aaa;
+    letter-spacing: 2px;
+}
+
+nav a {
+    color: #ddd;
+    text-decoration: none;
+    margin-left: 25px;
+    font-size: 14px;
+}
+
+nav a:hover {
+    color: white;
+}
+
+.breadcrumb {
+    max-width: 1200px;
+    margin: 25px auto 10px;
+    padding: 0 25px;
+    font-size: 13px;
+    color: #777;
+}
+
+.breadcrumb a {
+    color: #566c5c;
+    text-decoration: none;
+}
+
+.hero {
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: 440px;
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative;
+    background:
+        linear-gradient(rgba(70,55,35,.12), rgba(35,30,22,.80)),
+        url("https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1800&q=85")
+        center/cover;
+    display: flex;
+    align-items: flex-end;
+}
+
+.hero-content {
+    color: white;
+    padding: 50px;
+    max-width: 800px;
+}
+
+.hero-label {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 13px;
+    margin-bottom: 12px;
+}
+
+.hero h1 {
+    font-size: 58px;
+    margin: 0 0 12px;
+}
+
+.hero p {
+    font-size: 20px;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.content {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 25px;
+}
+
+.quick-facts {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px;
+    margin-bottom: 35px;
+}
+
+.fact {
+    background: white;
+    padding: 22px 15px;
+    border-radius: 5px;
+    text-align: center;
+    border-top: 4px solid #82745c;
+}
+
+.fact strong {
+    display: block;
+    font-size: 19px;
+    margin-bottom: 7px;
+}
+
+.fact span {
+    font-size: 12px;
+    color: #777;
+}
+
+.section {
+    background: white;
+    padding: 35px;
+    margin-bottom: 25px;
+    border-radius: 5px;
+}
+
+.section h2 {
+    margin-top: 0;
+    font-size: 30px;
+    color: #4b463d;
+}
+
+.section p {
+    line-height: 1.7;
+    color: #555;
+}
+
+.highlight {
+    background: #e4dfd3;
+    border-left: 5px solid #82745c;
+    padding: 20px;
+    margin: 25px 0;
+}
+
+.residents {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+}
+
+.resident {
+    border: 1px solid #d9d6cf;
+    padding: 24px;
+    border-radius: 5px;
+    background: #f7f5f0;
+}
+
+.resident h3 {
+    margin: 0 0 5px;
+    color: #514a3e;
+    font-size: 21px;
+}
+
+.scientific {
+    font-style: italic;
+    color: #777;
+    font-size: 13px;
+    margin-bottom: 12px;
+}
+
+.resident p {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+.experience-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.experience {
+    background: #f0eee8;
+    padding: 25px;
+    border-radius: 5px;
+}
+
+.experience h3 {
+    margin-top: 0;
+    color: #514a3f;
+}
+
+.experience p {
+    font-size: 14px;
+}
+
+.notice {
+    background: #ece8de;
+    border-left: 5px solid #84775d;
+    padding: 20px;
+    margin-top: 25px;
+}
+
+.notice strong {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.back {
+    text-align: center;
+    margin: 35px 0;
+}
+
+.back a {
+    display: inline-block;
+    background: #5b5548;
+    color: white;
+    padding: 14px 25px;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.back a:hover {
+    background: #474237;
+}
+
+footer {
+    background: #292d2b;
+    color: #aaa;
+    text-align: center;
+    padding: 35px;
+    margin-top: 50px;
+    font-size: 13px;
+}
+
+@media (max-width: 800px) {
+
+    header {
+        padding: 15px 20px;
+    }
+
+    nav {
+        display: none;
+    }
+
+    .hero {
+        min-height: 360px;
+    }
+
+    .hero-content {
+        padding: 30px;
+    }
+
+    .hero h1 {
+        font-size: 42px;
+    }
+
+    .quick-facts {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .residents,
+    .experience-grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo-area">
+
+        <div class="logo">🦖</div>
+
+        <div>
+            <div class="brand">PREHISTORIC PARK</div>
+            <div class="tagline">WHERE THE PAST IS ALIVE</div>
+        </div>
+
+    </div>
+
+    <nav>
+        <a href="../index.html">Home</a>
+        <a href="../park-map.html">Park Map</a>
+        <a href="../index.html#animals">Animals</a>
+        <a href="../index.html#visit">Plan Your Visit</a>
+    </nav>
+
+</header>
+
+<div class="breadcrumb">
+
+    <a href="../index.html">Home</a>
+    &nbsp; / &nbsp;
+
+    <a href="../park-map.html">Park Map</a>
+    &nbsp; / &nbsp;
+
+    Age of Mammals
+
+</div>
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="hero-label">
+            Prehistoric Mammal Habitat
+        </div>
+
+        <h1>Age of Mammals</h1>
+
+        <p>
+            Step beyond the dinosaurs and discover the enormous,
+            bizarre and surprisingly familiar mammals that followed.
+        </p>
+
+    </div>
+
+</section>
+
+<main class="content">
+
+    <div class="quick-facts">
+
+        <div class="fact">
+            <strong>South-West</strong>
+            <span>Park Sector</span>
+        </div>
+
+        <div class="fact">
+            <strong>6 Species</strong>
+            <span>Resident Species</span>
+        </div>
+
+        <div class="fact">
+            <strong>Mammals</strong>
+            <span>Prehistoric Collection</span>
+        </div>
+
+        <div class="fact">
+            <strong>Grassland</strong>
+            <span>Forest & Plains</span>
+        </div>
+
+        <div class="fact">
+            <strong>Walking Trail</strong>
+            <span>Primary Experience</span>
+        </div>
+
+    </div>
+
+    <section class="section">
+
+        <h2>After the Dinosaurs</h2>
+
+        <p>
+            The Age of Mammals explores a very different chapter of
+            prehistoric life. Its inhabitants come from several different
+            periods of Earth's history, representing the extraordinary
+            diversity of mammals that evolved long after the dinosaurs
+            had disappeared.
+        </p>
+
+        <p>
+            The habitat combines open grassland, woodland and dry
+            scrubland. Large animals have access to broad spaces while
+            smaller species can retreat into more sheltered areas.
+        </p>
+
+        <div class="highlight">
+
+            <strong>Some Things Look Surprisingly Familiar</strong><br>
+
+            Kangaroos, rhinoceroses and other modern-looking animals
+            have ancient relatives represented here — although some
+            members of this collection were considerably larger than
+            anything alive today.
+
+        </div>
+
+        <p>
+            Visitors follow a wide walking trail around the habitat,
+            with several elevated viewing points overlooking the
+            grasslands and woodland.
+        </p>
+
+    </section>
+
+    <section class="section">
+
+        <h2>The Residents</h2>
+
+        <div class="residents">
+
+            <div class="resident">
+
+                <h3>Paraceratherium</h3>
+
+                <div class="scientific">
+                    Paraceratherium
+                </div>
+
+                <p>
+                    One of the largest land mammals ever known.
+                    This enormous hornless rhinoceros relative towers
+                    above the surrounding vegetation.
+                </p>
+
+            </div>
+
+            <div class="resident">
+
+                <h3>Diprotodon</h3>
+
+                <div class="scientific">
+                    Diprotodon optatum
+                </div>
+
+                <p>
+                    Australia's giant marsupial herbivore. Diprotodon
+                    resembles an enormous wombat and is one of the
+                    park's most distinctive mammals.
+                </p>
+
+            </div>
+
+            <div class="resident">
+
+                <h3>Andrewsarchus</h3>
+
+                <div class="scientific">
+                    Andrewsarchus mongoliensis
+                </div>
+
+                <p>
+                    A huge prehistoric mammal known primarily from
+                    its enormous skull. Its exact lifestyle remains
+                    the subject of scientific discussion.
+                </p>
+
+            </div>
+
+            <div class="resident">
+
+                <h3>Archaeotherium</h3>
+
+                <div class="scientific">
+                    Archaeotherium
+                </div>
+
+                <p>
+                    An ancient entelodont with a powerful build and
+                    formidable jaws. Despite its pig-like appearance,
+                    it was a very different animal from modern pigs.
+                </p>
+
+            </div>
+
+            <div class="resident">
+
+                <h3>Procoptodon</h3>
+
+                <div class="scientific">
+                    Procoptodon goliah
+                </div>
+
+                <p>
+                    The largest known short-faced kangaroo. Procoptodon
+                    stood far taller than modern kangaroos and inhabited
+                    Ice Age Australia.
+                </p>
+
+            </div>
+
+            <div class="resident">
+
+                <h3>Megatherium</h3>
+
+                <div class="scientific">
+                    Megatherium americanum
+                </div>
+
+                <p>
+                    A gigantic ground sloth that could rear up on its
+                    hind legs to reach vegetation well above the ground.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="section">
+
+        <h2>The Age of Mammals Experience</h2>
+
+        <div class="experience-grid">
+
+            <div class="experience">
+
+                <h3>🌾 Open Range</h3>
+
+                <p>
+                    Large grassland areas allow the biggest mammals to
+                    move naturally across the habitat.
+                </p>
+
+            </div>
+
+            <div class="experience">
+
+                <h3>🌳 Mammal Woodland</h3>
+
+                <p>
+                    Follow the trail through sheltered woodland where
+                    several species spend time feeding and resting.
+                </p>
+
+            </div>
+
+            <div class="experience">
+
+                <h3>🔭 Giant Mammal Lookout</h3>
+
+                <p>
+                    Elevated viewing points provide a clear view across
+                    the main grassland and its larger residents.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="notice">
+
+            <strong>Visitor Safety</strong>
+
+            The Age of Mammals contains large free-moving animals.
+            Visitors must remain on designated paths and behind
+            protective barriers. Do not attempt to feed, touch or
+            attract the animals.
+
+        </div>
+
+    </section>
+
+    <div class="back">
+
+        <a href="../park-map.html">
+            ← Return to Park Map
+        </a>
+
+    </div>
+
+</main>
+
+<footer>
+
+    <div>PREHISTORIC PARK</div>
+
+    <div style="margin-top:8px;">
+        Where the past is alive.
+    </div>
+
+</footer>
+
+</body>
+</html>
